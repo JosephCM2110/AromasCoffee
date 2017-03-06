@@ -1,7 +1,7 @@
 <?php
 
-include_once './Data.php';
-include '../Domain/Achievement.php';
+include_once 'Data.php';
+include './Domain/Achievement.php';
 
 class AchievementData extends Data {
     

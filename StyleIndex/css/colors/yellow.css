@@ -2,8 +2,8 @@
     color: #f0d43a;
 }
 .buttons {
-    border-top: 1px solid ##f0d43a;
-    border-bottom: 1px solid ##f0d43a;
+    border-top: 1px solid #f0d43a;
+    border-bottom: 1px solid #f0d43a;
 }
 .buttons:hover {
 	background:#f0d43a;

@@ -1,7 +1,7 @@
 <?php
 
-include_once './Data.php';
-include '../Domain/Product.php';
+include_once 'Data.php';
+include './Domain/Product.php';
 
 class ProductData extends Data{
 

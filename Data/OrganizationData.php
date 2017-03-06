@@ -1,9 +1,9 @@
 <?php
 
-include_once './Data.php';
-include '../Domain/Organization.php';
+include_once 'Data.php';
+include './Domain/Organization.php';
 
-class OrganizationData extends Data{
+class OrganizationData extends Data {
 
     public function insertTBOrganization($organization) {
         $conn = mysqli_connect($this->server, $this->user, $this->password, $this->db);
@@ -69,18 +69,16 @@ class OrganizationData extends Data{
         $result = mysqli_query($conn, $querySelect);
         mysqli_close($conn);
 
-        $organizations = [];
-        while ($row = mysqli_fetch_array($result)) {
-            $currentOrganization = new Organization(
+        $row = mysqli_fetch_array($result);
+        $currentOrganization = new Organization(
                     $row['idtborganization'],
                     $row['nameorganization'],
                     $row['history'],
                     $row['mission'],
                     $row['vision'],
                     $row['location']);
-            array_push($organizations, $currentOrganization);
-        }
-        return $organizations;
+        
+        return $currentOrganization;
     }
     
 }

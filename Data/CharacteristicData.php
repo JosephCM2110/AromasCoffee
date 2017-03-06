@@ -1,7 +1,7 @@
 <?php
 
-include_once './Data.php';
-include '../Domain/Characteristic.php';
+include_once 'Data.php';
+include './Domain/Characteristic.php';
 
 class CharacteristicData extends Data {
 

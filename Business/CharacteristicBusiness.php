@@ -1,6 +1,6 @@
 <?php
 
-include '../Data/CharacteristicData.php';
+include './Data/CharacteristicData.php';
 
 class CharacteristicBusiness {
    

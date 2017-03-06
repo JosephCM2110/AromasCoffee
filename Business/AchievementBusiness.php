@@ -1,6 +1,6 @@
 <?php
 
-include '../Data/AchievementData.php';
+include './Data/AchievementData.php';
 
 class AchievementBusiness {
 

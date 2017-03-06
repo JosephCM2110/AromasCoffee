@@ -1,6 +1,6 @@
 <?php
 
-include '../Data/ProductData.php';
+include './Data/ProductData.php';
 
 class ProductBusiness {
     

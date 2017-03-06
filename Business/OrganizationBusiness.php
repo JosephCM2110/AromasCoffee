@@ -1,6 +1,6 @@
 <?php
 
-include '../Data/OrganizationData.php';
+include './Data/OrganizationData.php';
 
 class OrganizationBusiness {
 

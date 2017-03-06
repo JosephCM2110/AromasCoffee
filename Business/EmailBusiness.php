@@ -1,6 +1,6 @@
 <?php
 
-include '../Data/EmailData.php';
+include './Data/EmailData.php';
 
 class EmailBusiness {
 
@@ -15,15 +15,15 @@ class EmailBusiness {
     }
 
     public function updateTBEmail($email) {
-        $this->emailData->updateTBEmail($email);
+        return $this->emailData->updateTBEmail($email);
     }
 
     public function deleteTBEmail($idEmail) {
-        $this->emailData->deleteTBEmail($idEmail);
+        return $this->emailData->deleteTBEmail($idEmail);
     }
 
     public function getAllTBEmails() {
-        $this->emailData->getAllTBEmails();
+        return $this->emailData->getAllTBEmails();
     }
     
 }

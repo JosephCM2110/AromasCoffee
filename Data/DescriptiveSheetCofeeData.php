@@ -1,7 +1,7 @@
 <?php
 
-include_once './Data.php';
-include '../Domain/DescriptiveSheetCofee.php';
+include_once 'Data.php';
+include './Domain/DescriptiveSheetCofee.php';
 
 class DescriptiveSheetCofeeData extends Data {
     
@@ -71,8 +71,7 @@ class DescriptiveSheetCofeeData extends Data {
         $result = mysqli_query($conn, $querySelect);
         mysqli_close($conn);
 
-        $descriptiveSheetCofees = [];
-        while ($row = mysqli_fetch_array($result)) {
+        $row = mysqli_fetch_array($result);
             $currentDescriptiveSheetCofee = new DescriptiveSheetCofee(
                     $row['idtbdescriptivesheetcofee'],
                     $row['coffeeregion'],
@@ -81,9 +80,7 @@ class DescriptiveSheetCofeeData extends Data {
                     $row['varietiescofee'],
                     $row['harvestperiod'],
                     $row['driedtype']);
-            array_push($descriptiveSheetCofees, $currentDescriptiveSheetCofee);
-        }
-        return $descriptiveSheetCofees;
+        return $currentDescriptiveSheetCofee;
     }
     
 }

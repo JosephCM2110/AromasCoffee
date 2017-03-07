@@ -31,14 +31,18 @@
         <!--responsive css -->
         <link href="./StyleIndex/css/responsive.css" rel="stylesheet">
         <link rel="stylesheet" href="./StyleIndex/css/colors/yellow.css" id="color-switch">
+        <link href="StyleIndex/css/zoom.css" rel="stylesheet" type="text/css"/>
+        <script src="StyleIndex/js/validateFields.js" type="text/javascript"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">        
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
         <!-- teamplate colors -->
         <!-- <link rel="stylesheet" href="css/colors/turquoise.css">-->
         <!-- <link rel="stylesheet" href="css/colors/light-green.css"> -->
         <!-- <link rel="stylesheet" href="css/colors/purple.css"> -->
         <!-- <link rel="stylesheet" href="css/colors/light-blue.css"> -->
         <!-- <link rel="stylesheet" href="css/colors/brown.css"> -->
-        
-        <?php 
+
+        <?php
         include './Business/OrganizationBusiness.php';
         include './Business/CharacteristicBusiness.php';
         include './Business/ProductBusiness.php';
@@ -47,33 +51,33 @@
         include './Business/PhoneBusiness.php';
         include './Business/EmailBusiness.php';
         ?>
-        
+
     </head>
     <body>
-        
+
         <?php
         $organizationBusiness = new OrganizationBusiness();
         $organization = $organizationBusiness->getAllTBOrganizations();
-        
+
         $characteristicsBusiness = new CharacteristicBusiness();
         $characteristics = $characteristicsBusiness->getAllTBCharacteristics();
-        
+
         $productBusiness = new ProductBusiness();
         $products = $productBusiness->getAllTBProducts();
-        
+
         $descriptiveSheetCofeeBusiness = new DescriptiveSheetCofeeBusiness();
         $descriptives = $descriptiveSheetCofeeBusiness->getAllTBDescriptiveSheetCofees();
-        
+
         $achievementBusiness = new AchievementBusiness();
         $achievements = $achievementBusiness->getAllTBTBAchievements();
-        
+
         $phoneBusiness = new PhoneBusiness();
         $phones = $phoneBusiness->getAllTBPhones();
-        
+
         $emailBusiness = new EmailBusiness();
         $emails = $emailBusiness->getAllTBEmails();
         ?>
-        
+
         <!-- ========== preloader Start ========== -->
         <div class="preloader-wrap">
             <div class="preloader">
@@ -132,8 +136,7 @@
                         <div class="hero_slider_inner">
                             <div class="container">
                                 <a class="hero-logo" href="#"><img src="./StyleIndex/img/logo.png" alt="" /></a>
-                                <h1 class="intro">Served With Love & Smile</h1>
-                                <a href="#offer" class="buttons scroll">Vea nuestros productos</a>
+                                <h1 class="intro">Café Aromas</h1>
                             </div>
                         </div>
                     </div>
@@ -156,7 +159,7 @@
                 <!-- end section title-->
                 <div class="row">
                     <div class="col-sm-8 text-center our-story-content col-sm-offset-2">
-                        <p class="fadeIn animated wow" data-wow-delay=".1s">
+                        <p class="fadeIn animated wow zoom" data-wow-delay=".1s">
                             <?php
                             echo $organization->getHistory();
                             ?>
@@ -191,7 +194,7 @@
                 <div class="row">
                     <div class="col-xs-12">
                         <div class="section-title text-center mb90 fadeIn animated wow" data-wow-delay=".2s">
-                            <h2>Nosotros</h2>
+                            <h2 class="zoom">Nosotros</h2>
                             <div class="title-seperator"></div>
                         </div>
                     </div>
@@ -205,7 +208,7 @@
                             <div class="post-title">
                                 <h3 class="text-center">Misión</h3>
                             </div>
-                            <p>
+                            <p class="zoom">
                                 <?php
                                 echo $organization->getMission();
                                 ?>
@@ -220,7 +223,7 @@
                             <div class="post-title">
                                 <h3 class="text-center">Visión</h3>
                             </div>
-                            <p>
+                            <p class="zoom">
                                 <?php
                                 echo $organization->getVision();
                                 ?>
@@ -236,13 +239,13 @@
                                 <h3 class="text-center">¿Qué nos caracteriza?</h3>
                             </div>
                             <p>
-                                <ul>
+                            <ul>
                                 <?php
-                                foreach ($characteristics as $currentCharacteristic){
-                                    echo '<li>' . $currentCharacteristic->getCharateristic() . '</li>';
+                                foreach ($characteristics as $currentCharacteristic) {
+                                    echo '<li class="zoom">' . $currentCharacteristic->getCharateristic() . '</li>';
                                 }
                                 ?>
-                                </ul>
+                            </ul>
                             </p>
                         </div>
                     </div>
@@ -250,10 +253,10 @@
                 </div>
                 <!-- end section title-->
             </div>
-            
+
         </section>
         <!-- ========== our story section  End ========== -->
-        
+
         <!-- ========== our offter ========== -->
         <section id="offer" class="pt100 pb100 bg-black">
             <div class="container">
@@ -261,7 +264,7 @@
                 <div class="row">
                     <div class="col-xs-12">
                         <div class="section-title text-center mb90 fadeIn animated wow" data-wow-delay=".2s">
-                            <h2>Productos</h2>
+                            <h2 class="zoom">Productos</h2>
                             <div class="title-seperator"></div>
                         </div>
                     </div>
@@ -269,16 +272,16 @@
                 <!-- end section title-->
                 <div class="row">
                     <?php
-                    foreach($products as $currentProduct){
+                    foreach ($products as $currentProduct) {
                         ?>
 
-                            <div class="col-sm-4">
-                                <div class="single-offer text-center animated fadeInDown wow" data-wow-delay=".1s">
-                                    <img src="./StyleIndex/img/offer-img.png" alt="" />
-                                    <h3><?php echo $currentProduct->getNameProduct(); ?></h3>
-                                    <p><?php echo $currentProduct->getDescription(); ?></p>
-                                </div>
+                        <div class="col-sm-4 zoom">
+                            <div class="single-offer text-center animated fadeInDown wow" data-wow-delay=".1s">        
+                                <img src="./StyleIndex/img/offer-img.png" alt="" />
+                                <h3><?php echo $currentProduct->getNameProduct(); ?></h3>
+                                <p><?php echo $currentProduct->getDescription(); ?></p>
                             </div>
+                        </div>
                         <?php
                     }
                     ?>
@@ -293,7 +296,7 @@
                 <div class="row">
                     <div class="col-xs-12">
                         <div class="section-title text-center mb90 fadeIn animated wow" data-wow-delay=".2s">
-                            <h2>Nuestro café</h2>
+                            <h2 class="zoom">Nuestro café</h2>
                             <div class="title-seperator"></div>
                         </div>
                     </div>
@@ -307,8 +310,8 @@
                             </div>
                             <div class="sp-menu-content">
                                 <div class="sp-menu-name-price">
-                                    <h4>Región del café</h4>
-                                    <p><?php echo $descriptives->getCofeeRegion(); ?></p>
+                                    <h4 class="text-center">Región del café</h4>
+                                    <p class="text-center"><?php echo $descriptives->getCofeeRegion(); ?></p>
                                 </div>
                             </div>
                         </div>
@@ -320,8 +323,8 @@
                             </div>
                             <div class="sp-menu-content">
                                 <div class="sp-menu-name-price">
-                                    <h4>Características de la región</h4>
-                                    <p><?php echo $descriptives->getCharacteristicRegion(); ?></p>
+                                    <h4 class="text-center">Características de la región</h4>
+                                    <p class="text-center"><?php echo $descriptives->getCharacteristicRegion(); ?></p>
                                 </div>
                             </div>
                         </div>
@@ -333,8 +336,8 @@
                             </div>
                             <div class="sp-menu-content">
                                 <div class="sp-menu-name-price">
-                                    <h4>Altura</h4>
-                                    <p><?php echo $descriptives->getHeight(); ?></p>
+                                    <h4 class="text-center">Altura</h4>
+                                    <p class="text-center"><?php echo $descriptives->getHeight(); ?></p>
                                 </div>
                             </div>
                         </div>
@@ -346,8 +349,8 @@
                             </div>
                             <div class="sp-menu-content">
                                 <div class="sp-menu-name-price">
-                                    <h4>Variedades de café</h4>
-                                    <p><?php echo $descriptives->getVarietiesCofee(); ?></p>
+                                    <h4 class="text-center">Variedades de café</h4>
+                                    <p class="text-center"><?php echo $descriptives->getVarietiesCofee(); ?></p>
                                 </div>
                             </div>
                         </div>
@@ -359,8 +362,8 @@
                             </div>
                             <div class="sp-menu-content">
                                 <div class="sp-menu-name-price">
-                                    <h4>Periodo de cosecha</h4>
-                                    <p><?php echo $descriptives->getHarvestPeriod(); ?></p>
+                                    <h4 class="text-center">Periodo de cosecha</h4>
+                                    <p class="text-center"><?php echo $descriptives->getHarvestPeriod(); ?></p>
                                 </div>
                             </div>
                         </div>
@@ -372,8 +375,8 @@
                             </div>
                             <div class="sp-menu-content">
                                 <div class="sp-menu-name-price">
-                                    <h4>Tipo de secado</h4>
-                                    <p><?php echo $descriptives->getDriedType(); ?></p>
+                                    <h4 class="text-center">Tipo de secado</h4>
+                                    <p class="text-center"><?php echo $descriptives->getDriedType(); ?></p>
                                 </div>
                             </div>
                         </div>
@@ -389,7 +392,7 @@
                 <div class="row">
                     <div class="col-xs-12">
                         <div class="section-title text-center mb90 text-center mb90 fadeIn animated wow" data-wow-delay=".2s">
-                            <h2>Galería</h2>
+                            <h2 class="zoom">Galería</h2>
                             <div class="title-seperator"></div>
                         </div>
                     </div>
@@ -458,13 +461,13 @@
                         </div>
 
                         <div class="clearfix"></div>
-                        <a href="#" class="buttons animated zoomIn wow" data-wow-delay=".2s" id="loadmore">Load more</a>
+                        <a href="#" class="buttons animated zoomIn wow" data-wow-delay=".2s" id="loadmore">Ver más</a>
                     </div>
                 </div>
             </div>
         </section>
         <!-- ========== gallery section End ========== -->
-        
+
         <!-- ========== Testimonial section ========== -->
         <section id="reviews" class="pt100 pb100 bg-dark">
             <div class="container">
@@ -472,7 +475,7 @@
                 <div class="row">
                     <div class="col-xs-12">
                         <div class="section-title text-center mb90 fadeIn animated wow" data-wow-delay=".2s">
-                            <h2>Nuestros logros</h2>
+                            <h2 class="zoom">Nuestros logros</h2>
                             <div class="title-seperator"></div>
                         </div>
                     </div>
@@ -481,16 +484,16 @@
                 <div class="row">
                     <div class="col-sm-12">
                         <div class="testimonial-carousel">
-                            <?php foreach($achievements as $currentAchievement) {
+                            <?php foreach ($achievements as $currentAchievement) {
                                 ?>
-                                <div class="testimonial-item bg-black">
-<!--                                    <div class="testimonial-image">
-                                        <img src="./StyleIndex/img/testimonial1.jpg" alt="" />
-                                    </div>-->
+                                <div class="testimonial-item bg-black" >
+                                    <!--                                    <div class="testimonial-image">
+                                                                            <img src="./StyleIndex/img/testimonial1.jpg" alt="" />
+                                                                        </div>-->
                                     <div class="testimonial-body">
                                         <!--<h3>Al-Rayhan</h3>-->
                                         <!--<p>Co-Founder & COO</p>-->
-                                        <blockquote><i class="fa fa-quote-left" aria-hidden="true"></i>
+                                        <blockquote><i class="fa fa-align-center" aria-hidden="true"></i>
                                             <?php
                                             echo $currentAchievement->getAchievement();
                                             ?>
@@ -508,26 +511,92 @@
 
             </div>
         </section>
-        <!-- ========== Testimonial section End ========== -->
+       
+        <?php
+        if (isset($_GET['success'])) {
+            echo '
+                <script>                
+                    $(document).ready(function(){
+                        modalSelect("¡El mensaje fue enviado correctamente!","Envío exitoso");
+                        $("#myModal").modal("show");
+                    });
+                </script>';
+        } else if (isset($_GET['error'])) {
+            echo '
+                <script>     
+                    $(document).ready(function(){
+                        modalSelect("¡El mensaje no se pudo enviar correctamente!","Envío fallido");
+                        $("#myModal").modal("show");
+                    });
+                </script>';
+        } else if (isset($_GET['errorCampos'])) {
+            echo '
+                <script>                
+                    $(document).ready(function(){
+                        modalSelect("¡El mensaje no se pudo enviar, campos vacíos en el formulario!","Envío fallido");
+                        $("#myModal").modal("show");
+                    });
+                </script>';
+        }
+        ?>
+
         <!-- ========== contact section ========== -->
         <section id="contact" class="pt100 pb100 bg-black">
-            
+
             <div class="row">
-                    <div class="col-xs-12">
-                        <div class="section-title text-center mb90 fadeIn animated wow" data-wow-delay=".2s">
-                            <h2>Contacto</h2>
-                            <div class="title-seperator"></div>
-                        </div>
+                <div class="col-xs-12">
+                    <div class="section-title text-center mb90 fadeIn animated wow" data-wow-delay=".2s">
+                        <h2 class="zoom">Contacto</h2>
+                        <p>Para cualquier consulta escríbanos, 
+                            nos gustaría saber de tí y de tus opiniones sobre Café Aromas.</p>
+
                     </div>
                 </div>
-            
-            <div>
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3931.6559350651164!2d-83.73175398578373!3d9.795151892991782!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xe1ee08383bbded24!2sMicrobeneficio+%26+Tostadora+Gamboa+S.R.L!5e0!3m2!1ses!2ses!4v1488831131587" width="100%" height="350" frameborder="0" style="border:0" allowfullscreen></iframe>
             </div>
-            
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3 wow fadeInUp" data-wow-delay=".3s">
+                    <form name="frmContacto" method="post" enctype="multipart/form-data" action="./Business/SmtpAction.php">
+                        <div class="form-group">
+                            <label for="Nombre">Nombre:</label>
+                            <input type="text" class="form-control" id="Name" name="Name" placeholder="Nombre">
+                            <label for="error1" id="error1" style="color: red;"></label>
+                        </div>
+                        <div class="form-group">
+                            <label for="Telefono">Teléfono:</label>
+                            <input type="number" class="form-control" id="Telephone" name="Telephone" placeholder="Teléfono">
+                            <label for="error2" id="error2" style="color: red;"></label>
+                        </div>
+                        <div class="form-group">
+                            <label for="Correo electronico">Correo electrónico:</label>
+                            <input type="email" class="form-control" id="Email" name="Email" placeholder="Correo electrónico">
+                            <label for="error3" id="error3" style="color: red;"></label>
+                        </div>
+                        <div class="form-group">
+                            <label for="Mensaje">Mensaje:</label>
+                            <textarea class="form-control" rows="3" id="Comments" name="Comments" placeholder="Mensaje"></textarea>
+                            <label for="error4" id="error4" style="color: red;"></label>
+                        </div>                             
+                        <input style="color: black;" type="submit" value="Enviar" id="btnAccept" name="btnAccept" 
+                               class="btn-block" onclick="return validateFields()" />    
+
+                    </form>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="section-title text-center mb90 fadeIn animated wow" data-wow-delay=".2s">
+                        <div class="title-seperator"></div>
+                        <h2 class="zoom">Localización</h2>
+                        <div class="title-seperator"></div>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3931.6559350651164!2d-83.73175398578373!3d9.795151892991782!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xe1ee08383bbded24!2sMicrobeneficio+%26+Tostadora+Gamboa+S.R.L!5e0!3m2!1ses!2ses!4v1488831131587" width="100%" height="350" frameborder="0" style="border:0" allowfullscreen></iframe>
+
+                    </div>
+                </div>
+            </div>
             <div class="container">
                 <!-- section title -->
-                
+
                 <div class="row">
                     <div class="col-sm-4">
                         <div class="single-contact-widget bg-dark animated fadeInDown wow" data-wow-delay=".2s">
@@ -556,22 +625,22 @@
                             <h3>Contacto</h3>
                             <span class="color-primary">Teléfono(s)</span><br>
                             <p>
-                            <?php 
-                            foreach($phones as $currentPhone){
-                                echo "(+506)&nbsp" . $currentPhone->getPhone() . "<br>";
-                            }
-                            ?>
+                                <?php
+                                foreach ($phones as $currentPhone) {
+                                    echo "(+506)&nbsp" . $currentPhone->getPhone() . "<br>";
+                                }
+                                ?>
                             </p>
                             <span class="color-primary">Correo(s)</span><br>
                             <p>
-                            <?php 
-                            foreach($emails as $currentEmail){
-                                ?>
-                                <a href="<?php echo $currentEmail->getEmail(); ?>">
-                                    <?php echo $currentEmail->getEmail(); ?></a><br>
                                 <?php
-                            }
-                            ?>
+                                foreach ($emails as $currentEmail) {
+                                    ?>
+                                    <p>
+                                        <?php echo $currentEmail->getEmail(); ?></p><br>
+                                    <?php
+                                }
+                                ?>
                             </p>
                         </div>
                     </div>
@@ -584,15 +653,70 @@
         <footer id="footer" class="pt50 pb50 bg-black footer-area">
             <div class="container">
                 <div class="row">
-                    <div class="col-sm-3 text-center-xs">
+                    <div class="col-sm-4 text-center-xs">
                         <h3 class="logo animated fadeInLeft wow" data-wow-delay=".1s">Café Aromas</h3>
                     </div>
-                    <div class="col-sm-9 text-right text-center-xs">
+                    <div class="col-md-2">
+                        <button style="color: #000;" onclick="return modalSelectDevelo('Michael Meléndez Mesén',
+                                        'Joseph Cordero Marín');
+                                "type="button" class="btn btn-main"
+                                data-toggle="modal" data-target="#myModal2">
+                            TCU 563 Universidad de Costa Rica <br> Sede del Atlántico</button>
+                    </div>
+                    <div class="col-sm-6 text-right text-center-xs">
                         <p class="animated fadeInRight wow" data-wow-delay=".2s">&copy; 2017 Café Aromas - Todos los derechos reservados.</p>
                     </div>
                 </div>
             </div>
         </footer>
+        <!-- Modal
+           ============================================= -->
+         <!-- ========== Testimonial section End ========== -->
+        <div class="modal fade" id="myModal" role="dialog">
+            <div class="modal-dialog">    
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header bg-dark">
+                        <h4 class="modal-title"></h4>
+                    </div>
+                    <div class="modal-body bg-dark">
+                        <div class="text">
+                            
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <!--Modal desarrolladores-->
+        <div class="modal fade" id="myModal2" role="dialog">
+            <div class="modal-dialog">    
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header bg-dark">
+                        <h4 class="modal-title">Desarrolladores:</h4>
+                    </div>
+                    <div class="modal-body bg-dark">
+                        <ul>
+                            <li><a class="Desa1" href="https://www.facebook.com/michael.melendezm?fref=grp_mmbr_list"></a></li>
+                            <li><a class="Desa2" href="https://www.facebook.com/joseph.cordero.94?fref=grp_mmbr_list"></a></li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <script>
+            function modalSelect(modalMessage, modalTitle) {
+                document.getElementsByClassName("modal-title")[0].textContent = modalTitle;
+                document.getElementsByClassName("text")[0].textContent = modalMessage;
+            }
+            function modalSelectDevelo(name1, name2) {
+                document.getElementsByClassName("Desa1")[0].textContent = name1;
+                document.getElementsByClassName("Desa2")[0].textContent = name2;
+
+            }
+        </script> 
         <!-- ========== footer section End ========== -->
         <!-- JQUERY -->
         <script type="text/javascript" src="./StyleIndex/js/jquery.min.js"></script>

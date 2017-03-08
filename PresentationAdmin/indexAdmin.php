@@ -7,7 +7,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Turriplantas</title>
+        <title>Café Aromas</title>
 
         <!-- Bootstrap -->
         <link href="../StyleAdmin/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -33,7 +33,7 @@
                             <div class="col-md-12">
                                 <div class="x_panel">
                                     <div class="x_title">
-                                        <h2>Turriplantas<small></small></h2>
+                                        <h2>Café Aromas<small></small></h2>
                                         <ul class="nav navbar-right panel_toolbox">
                                             <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                                             </li>                                         
@@ -75,7 +75,7 @@
                 <!-- footer content -->
                 <footer>
                     <div class="pull-right">
-                        Turriplantas
+                        Café Aromas
                     </div>
                     <div class="clearfix"></div>
                 </footer>

@@ -46,6 +46,7 @@
         include './Business/AchievementBusiness.php';
         include './Business/PhoneBusiness.php';
         include './Business/EmailBusiness.php';
+        include './Business/CoffeeTourBusiness.php';
         ?>
 
     </head>
@@ -72,6 +73,9 @@
 
         $emailBusiness = new EmailBusiness();
         $emails = $emailBusiness->getAllTBEmails();
+
+        $coffeeTourBusiness = new CoffeeTourBusiness();
+        $coffeeTours = $coffeeTourBusiness->getAllTBCoffeeTours();
         ?>
 
         <!-- ========== preloader Start ========== -->
@@ -113,7 +117,8 @@
                         <li><a href="#offer">Productos</a></li>
                         <li><a href="#menu">Nuestro café</a></li>
                         <li><a href="#gallery">Galeria</a></li>
-                        <li><a href="#reviews">Nuestros logros</a></li>
+                        <li><a href="#reviews">Logros</a></li>
+                        <li><a href="#tour">Tour del café</a></li>
                         <li><a href="#contact">Contacto</a></li>
                     </ul>
                 </div>
@@ -147,7 +152,7 @@
                 <div class="row">
                     <div class="col-xs-12">
                         <div class="section-title text-center mb90 fadeIn animated wow" data-wow-delay=".2s">
-                            <h2>Nuestra historia</h2>
+                            <h2 class="zoom">Nuestra historia</h2>
                             <div class="title-seperator"></div>
                         </div>
                     </div>
@@ -507,7 +512,58 @@
 
             </div>
         </section>
-       
+
+        <section id="tour" class="pt100 pb100 our-story bg-dark" style="background-image: url('./StyleIndex/img/our-story-bg.png')">
+            <div class="container">
+                <!-- section title -->
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="section-title text-center mb90 fadeIn animated wow" data-wow-delay=".2s">
+                            <h2 class="zoom">Tour del café</h2>
+                            <div class="title-seperator"></div>
+                        </div>
+                    </div>
+                </div>
+                <!-- end section title-->
+                <?php foreach ($coffeeTours as $currentCoffeeTour) {
+                    ?>
+                    <div class="row">
+                        <div class="col-sm-8 text-center our-story-content col-sm-offset-2">
+                            <p class="fadeIn animated wow zoom" data-wow-delay=".1s">
+                                <?php
+                                echo substr($currentCoffeeTour->getDescriptionCoffeeTour(), 0, 275);
+                                ?>
+                            </p>
+                            <a href="#" class="buttons zoomIn animated wow" data-wow-delay=".2s" data-toggle="modal" data-target="#tourModal">Leer más</a>
+                        </div>
+                        <!-- full story modal-->
+                        <!-- Modal -->
+                        <div class="modal fade" id="tourModal" tabindex="-1" role="dialog">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header bg-dark">
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+
+                                    </div>
+                                    <div class="modal-body bg-dark">
+                                        <h3>Tour del café</h3>
+                                        <p>
+                                            <?php
+                                            echo nl2br($currentCoffeeTour->getDescriptionCoffeeTour());
+                                            ?>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <?php 
+                }
+                ?>
+
+            </div>
+        </section>
+
         <?php
         if (isset($_GET['success'])) {
             echo '
@@ -632,11 +688,11 @@
                                 <?php
                                 foreach ($emails as $currentEmail) {
                                     ?>
-                                    <p>
-                                        <?php echo $currentEmail->getEmail(); ?></p><br>
-                                    <?php
-                                }
-                                ?>
+                                <p>
+                                    <?php echo $currentEmail->getEmail(); ?></p><br>
+                                <?php
+                            }
+                            ?>
                             </p>
                         </div>
                     </div>
@@ -650,7 +706,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-sm-4 text-center-xs">
-                        <h3 class="logo animated fadeInLeft wow" data-wow-delay=".1s">Café Aromas</h3>
+                        <a href="./PresentationAdmin/login.php"><h3 class="logo animated fadeInLeft wow" data-wow-delay=".1s">Café Aromas</h3></a>
                     </div>
                     <div class="col-md-2">
                         <button style="color: #000;" onclick="return modalSelectDevelo('Michael Meléndez Mesén',
@@ -667,7 +723,7 @@
         </footer>
         <!-- Modal
            ============================================= -->
-         <!-- ========== Testimonial section End ========== -->
+        <!-- ========== Testimonial section End ========== -->
         <div class="modal fade" id="myModal" role="dialog">
             <div class="modal-dialog">    
                 <!-- Modal content-->
@@ -677,7 +733,7 @@
                     </div>
                     <div class="modal-body bg-dark">
                         <div class="text">
-                            
+
                         </div>
                     </div>
                 </div>
@@ -694,8 +750,8 @@
                     </div>
                     <div class="modal-body bg-dark">
                         <ul>
-                            <li><a class="Desa1" href="https://www.facebook.com/michael.melendezm?fref=grp_mmbr_list"></a></li>
-                            <li><a class="Desa2" href="https://www.facebook.com/joseph.cordero.94?fref=grp_mmbr_list"></a></li>
+                            <li><a style="color: white" class="Desa1" href="https://www.facebook.com/michael.melendezm?fref=grp_mmbr_list"></a></li>
+                            <li><a style="color: white" class="Desa2" href="https://www.facebook.com/joseph.cordero.94?fref=grp_mmbr_list"></a></li>
                         </ul>
                     </div>
                 </div>

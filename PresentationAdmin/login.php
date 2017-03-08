@@ -52,7 +52,7 @@
 
                                 <div>
                                     <h1><i class="fa fa-group"></i>Café Aromas</h1>
-                                    <p>Â©2017 Café Aromas</p>
+                                    <p>2017 Café Aromas</p>
                                 </div>
                             </div>
                         </form>

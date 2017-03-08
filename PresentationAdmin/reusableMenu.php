@@ -11,13 +11,15 @@
                 <!-- menu profile quick info -->
                 <div class="profile clearfix">
                     <div class="profile_pic">
-                        <img src="../StyleAdmin/images/img.jpg" alt="..." class="img-circle profile_img">
+                        <img src="../Resources/Icons/FOTO AROMAS.jpg" alt="..." class="img-circle profile_img">
                     </div>
                     <div class="profile_info">
                         <span>¡Bienvenido!</span>
-                        <h2><?php 
-                        
-                        echo $_SESSION['userName'];?></h2>
+                        <h2>
+                            <?php 
+                            echo $_SESSION["userName"];
+                            ?>
+                        </h2>
                     </div>
                 </div>
                 <!-- /menu profile quick info -->
@@ -66,7 +68,7 @@
                     <ul class="nav navbar-nav navbar-right">
                         <li class="">
                             <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                                <img src="../StyleAdmin/images/img.jpg" alt=""><?php echo $_SESSION['userName'];?>
+                                <?php echo $_SESSION['userName'];?>
                                 <span class=" fa fa-angle-down"></span>
                             </a>
                             <ul class="dropdown-menu dropdown-usermenu pull-right">                                       

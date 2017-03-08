@@ -547,8 +547,8 @@
 
                                     </div>
                                     <div class="modal-body bg-dark">
-                                        <h3>Tour del café</h3>
-                                        <p>
+                                        <h3 class="text-center">Tour del café</h3>
+                                        <p class="text-justify">
                                             <?php
                                             echo nl2br($currentCoffeeTour->getDescriptionCoffeeTour());
                                             ?>

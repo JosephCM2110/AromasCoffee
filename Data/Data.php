@@ -27,6 +27,13 @@ class Data {
                 $this->password = "123456";
                 $this->db = "harvestsoft";
                 break;
+            case "Michael": //Joseph's PC
+                $this->isActive = false;
+                $this->server = "127.0.0.1";
+                $this->user = "root";
+                $this->password = "";
+                $this->db = "aromascoffee";
+                break;
         }
     }
 

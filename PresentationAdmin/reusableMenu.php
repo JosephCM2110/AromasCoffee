@@ -40,8 +40,8 @@
                                     <li><a href="adminInformationCharacteristics.php">Características</a></li>
                                     <li><a href="adminInformationProduct.php">Producto</a></li>
                                     <li><a href="adminInformationAchievement.php">Logros</a></li>
-                                    <li><a href="adminImagesProducts.php">Imagenes productos</a></li>
-                                    <li><a href="adminImagesGalery.php">Imagenes galería</a></li>
+                                    <li><a href="adminImagesProducts.php">Imágenes productos</a></li>
+                                    <li><a href="adminImagesGalery.php">Imágenes galería</a></li>
                                     <li><a href="adminInformationAdministrator.php">Usuarios</a></li>
                                 </ul>
                             </li>

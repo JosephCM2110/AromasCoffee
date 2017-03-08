@@ -1,6 +1,6 @@
 <?php
 
-include '../Data/ImageProductData.php';
+include './Data/ImageProductData.php';
 
 class ImageProductBusiness {
 
@@ -9,8 +9,25 @@ class ImageProductBusiness {
     function ImageProductBusiness() {
         $this->imageProductData = new ImageProductData();
     }
+
+    public function insertTBImageProduct($imageProduct) {
+        return $this->imageProductData->insertTBImageProduct($imageProduct);
+    }
+
+    public function updateTBImageProduct($imageProduct) {
+        return $this->imageProductData->updateTBImageProduct($imageProduct);
+    }
+
+    public function deleteTBImageProduct($idImage) {
+        return $this->imageProductData->deleteTBImageProduct($idImage);
+    }
+
     public function getAllTBImageProducts() {
         return $this->imageProductData->getAllTBImageProducts();
+    }
+    
+    public function getAllTBImageProductsByProduct($idProduct) {
+        return $this->imageProductData->getAllTBImageProductsByProduct($idProduct);
     }
     
 }

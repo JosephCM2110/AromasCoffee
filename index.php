@@ -29,6 +29,7 @@
         <link href="./StyleIndex/css/responsive.css" rel="stylesheet">
         <link rel="stylesheet" href="./StyleIndex/css/colors/yellow.css" id="color-switch">
         <link href="StyleIndex/css/zoom.css" rel="stylesheet" type="text/css"/>
+        <link href="StyleIndex/css/rotate.css" rel="stylesheet" type="text/css"/>
         <script src="StyleIndex/js/validateFields.js" type="text/javascript"></script>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">        
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
@@ -48,6 +49,8 @@
         include './Business/PhoneBusiness.php';
         include './Business/EmailBusiness.php';
         include './Business/CoffeeTourBusiness.php';
+        include './Business/ImageProductBusiness.php';
+        include './Business/ImageBusiness.php';
         include_once './Business/ValidatePHP.php';
         ?>
 
@@ -63,6 +66,8 @@
 
         $productBusiness = new ProductBusiness();
         $products = $productBusiness->getAllTBProducts();
+        
+        $imageProductBusiness = new ImageProductBusiness();
 
         $descriptiveSheetCofeeBusiness = new DescriptiveSheetCofeeBusiness();
         $descriptives = $descriptiveSheetCofeeBusiness->getAllTBDescriptiveSheetCofees();
@@ -78,6 +83,9 @@
 
         $coffeeTourBusiness = new CoffeeTourBusiness();
         $coffeeTours = $coffeeTourBusiness->getAllTBCoffeeTours();
+        
+        $imageBusiness = new ImageBusiness();
+        $allImages = $imageBusiness->getAllTBImages();
         ?>
 
         <!-- ========== preloader Start ========== -->
@@ -133,17 +141,28 @@
         <!-- ========== hero section ========== -->
         <section id="home" class="hero home_intro_carousel bg-black">
             <div class="fullscreen-slider owl-carousel">
-                <div class="slider_item">
-                    <div class="slide-bg-image" style="background-image: url('./StyleIndex/img/hero/slider-1.jpg')">
-                        <div class="bg-overlay opacity-6"></div>
-                        <div class="hero_slider_inner">
-                            <div class="container">
-                                <a class="hero-logo" href="#"><img src="./StyleIndex/img/logo.png" alt="" /></a>
-                                <h1 class="intro">Café Aromas</h1>
+                <?php
+                $cont = 0;
+                foreach ($allImages as $currentImage) {
+                    if($cont == 3){
+                        break;
+                    }
+                    $cont++;
+                ?>
+                    <div class="slider_item">
+                        <div class="slide-bg-image" style="background-image: url('./Resources/ImagesGalery/<?php echo $currentImage->getImagePath(); ?>')">
+                            <div class="bg-overlay opacity-6"></div>
+                            <div class="hero_slider_inner">
+                                <div class="container">
+                                    <!--<a class="hero-logo" href="#"><img src="./StyleIndex/img/logo.png" alt="" /></a>-->
+                                    <h1 class="intro">Café Aromas</h1>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                <?php
+                }
+                ?>
             </div>
         </section>
         <!-- ========== hero section  End ========== -->
@@ -276,11 +295,22 @@
                 <div class="row">
                     <?php
                     foreach ($products as $currentProduct) {
+                        $productImages = $imageProductBusiness->
+                                getAllTBImageProductsByProduct($currentProduct->getIdProduct());
                         ?>
-
-                        <div class="col-sm-4 zoom">
+                        <div class="col-sm-4">
                             <div class="single-offer text-center animated fadeInDown wow" data-wow-delay=".1s">        
-                                <img src="./StyleIndex/img/offer-img.png" alt="" />
+                                <div class="flip-container center-block" ontouchstart="this.classList.toggle('hover');">
+                                    <div class="flipper">
+                                        <div class="front">
+                                            <img src="./Resources/ImagesProducts/<?php echo $productImages[0]->getImagePath(); ?>" width="220px" height="290px" />
+                                            
+                                        </div>
+                                        <div class="back">
+                                            <img src="./Resources/ImagesProducts/<?php echo $productImages[1]->getImagePath(); ?>" width="220px" height="290px" />
+                                        </div>
+                                    </div>
+                                </div>
                                 <h3><?php echo $currentProduct->getNameProduct(); ?></h3>
                                 <p><?php echo $currentProduct->getDescription(); ?></p>
                             </div>
@@ -402,67 +432,21 @@
                 </div>
                 <!-- end section title-->
                 <div class="row">
-
                     <div class="col-sm-12">
                         <div class="zoom-gallery">
-                            <div class="grid-item col-sm-6" data-wow-delay=".1s">
-                                <a class="overlay" href="./StyleIndex/img/gallery/gallery-1-full.jpg" title="Black coffee">
-                                    <img src="./StyleIndex/img/gallery/gallery-1.jpg" alt="" />
-                                    <span class="icon-focus item-icon"></span>
-                                </a>
-                            </div>
-
-                            <div class="grid-item col-sm-6" data-wow-delay=".2s">
-                                <a class="overlay" href="./StyleIndex/img/gallery/gallery-5-full.jpg" title="Cold coffee">
-                                    <img src="./StyleIndex/img/gallery/gallery-2.jpg" alt="" />
-                                    <span class="icon-focus item-icon"></span>
-                                </a>
-                            </div>
-                            <div class="grid-item col-sm-6" data-wow-delay=".3s">
-                                <a class="overlay" href="./StyleIndex/img/gallery/gallery-3-full.jpg" title="Black coffee">
-                                    <img src="./StyleIndex/img/gallery/gallery-3.jpg" alt="" />
-                                    <span class="icon-focus item-icon"></span>
-                                </a>
-                            </div>
-                            <div class="clearfix"></div>
-                            <div class="grid-item col-sm-4" data-wow-delay=".4s">
-                                <a class="overlay" href="./StyleIndex/img/gallery/gallery-4-full.jpg" title="Special coffee">
-                                    <img src="./StyleIndex/img/gallery/gallery-4.jpg" alt="" />
-                                    <span class="icon-focus item-icon"></span>
-                                </a>
-                            </div>
-                            <div class="grid-item col-sm-4" data-wow-delay=".5s">
-                                <a class="overlay" href="./StyleIndex/img/gallery/gallery-5-full.jpg" title="Layered coffee">
-                                    <img src="./StyleIndex/img/gallery/gallery-5.jpg" alt="" />
-                                    <span class="icon-focus item-icon"></span>
-                                </a>
-                            </div>
-                            <div class="grid-item col-sm-4" data-wow-delay=".6s">
-                                <a class="overlay" href="./StyleIndex/img/gallery/gallery-6-full.jpg" title="Been coffee">
-                                    <img src="./StyleIndex/img/gallery/gallery-6.jpg" alt="" />
-                                    <span class="icon-focus item-icon"></span>
-                                </a>
-                            </div>
-                            <div class="grid-item col-sm-4" data-wow-delay=".1s">
-                                <a class="overlay" href="./StyleIndex/img/gallery/gallery-7-full.jpg" title="Layered coffee">
-                                    <img src="./StyleIndex/img/gallery/gallery-7.jpg" alt="" />
-                                    <span class="icon-focus item-icon"></span>
-                                </a>
-                            </div>
-                            <div class="grid-item col-sm-4" data-wow-delay=".2s">
-                                <a class="overlay" href="./StyleIndex/img/gallery/gallery-8-full.jpg" title="Special coffee">
-                                    <img src="./StyleIndex/img/gallery/gallery-8.jpg" alt="" />
-                                    <span class="icon-focus item-icon"></span>
-                                </a>
-                            </div>
-                            <div class="grid-item col-sm-4" data-wow-delay=".3s">
-                                <a class="overlay" href="./StyleIndex/img/gallery/gallery-9-full.jpg" title="Been coffee">
-                                    <img src="./StyleIndex/img/gallery/gallery-9.jpg" alt="" />
-                                    <span class="icon-focus item-icon"></span>
-                                </a>
-                            </div>	
+                            <?php
+                            foreach($allImages as $currentImage) {
+                                ?>
+                                <div class="grid-item col-sm-6" data-wow-delay=".1s">
+                                    <a class="overlay" href="./Resources/ImagesGalery/<?php echo $currentImage->getImagePath(); ?>" title="<?php echo $currentImage->getDescription(); ?>">
+                                        <img src="./Resources/ImagesGalery/<?php echo $currentImage->getImagePath(); ?>" alt="" />
+                                        <span class="icon-focus item-icon"></span>
+                                    </a>
+                                </div>
+                                <?php
+                            }
+                            ?>
                         </div>
-
                         <div class="clearfix"></div>
                         <a href="#" class="buttons animated zoomIn wow" data-wow-delay=".2s" id="loadmore">Ver más</a>
                     </div>
@@ -490,9 +474,11 @@
                             <?php foreach ($achievements as $currentAchievement) {
                                 ?>
                                 <div class="testimonial-item bg-black" >
-                                    <!--                                    <div class="testimonial-image">
-                                                                            <img src="./StyleIndex/img/testimonial1.jpg" alt="" />
-                                                                        </div>-->
+                                    <!--                                   
+                                    <div class="testimonial-image">
+                                        <img src="./StyleIndex/img/testimonial1.jpg" alt="" />
+                                        </div>
+                                    -->
                                     <div class="testimonial-body">
                                         <!--<h3>Al-Rayhan</h3>-->
                                         <!--<p>Co-Founder & COO</p>-->

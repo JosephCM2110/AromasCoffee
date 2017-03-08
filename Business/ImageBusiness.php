@@ -1,6 +1,6 @@
 <?php
 
-include '../Data/ImageData.php';
+include './Data/ImageData.php';
 
 class ImageBusiness {
 

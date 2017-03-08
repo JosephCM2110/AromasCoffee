@@ -1,6 +1,6 @@
 <?php
 
-include '../Data/ImageProductData.php';
+include './Data/ImageProductData.php';
 
 class ImageProductBusiness {
 
@@ -24,6 +24,10 @@ class ImageProductBusiness {
 
     public function getAllTBImageProducts() {
         return $this->imageProductData->getAllTBImageProducts();
+    }
+    
+    public function getAllTBImageProductsByProduct($idProduct) {
+        return $this->imageProductData->getAllTBImageProductsByProduct($idProduct);
     }
     
 }

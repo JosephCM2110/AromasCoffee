@@ -150,7 +150,7 @@
                     $cont++;
                 ?>
                     <div class="slider_item">
-                        <div class="slide-bg-image" style="background-image: url('./Images/<?php echo $currentImage->getImagePath(); ?>')">
+                        <div class="slide-bg-image" style="background-image: url('./Resources/ImagesGalery/<?php echo $currentImage->getImagePath(); ?>')">
                             <div class="bg-overlay opacity-6"></div>
                             <div class="hero_slider_inner">
                                 <div class="container">
@@ -303,11 +303,11 @@
                                 <div class="flip-container center-block" ontouchstart="this.classList.toggle('hover');">
                                     <div class="flipper">
                                         <div class="front">
-                                            <img src="./Images/<?php echo $productImages[0]->getImagePath(); ?>" width="220px" height="290px" />
+                                            <img src="./Resources/ImagesProducts/<?php echo $productImages[0]->getImagePath(); ?>" width="220px" height="290px" />
                                             
                                         </div>
                                         <div class="back">
-                                            <img src="./Images/<?php echo $productImages[1]->getImagePath(); ?>" width="220px" height="290px" />
+                                            <img src="./Resources/ImagesProducts/<?php echo $productImages[1]->getImagePath(); ?>" width="220px" height="290px" />
                                         </div>
                                     </div>
                                 </div>
@@ -438,8 +438,8 @@
                             foreach($allImages as $currentImage) {
                                 ?>
                                 <div class="grid-item col-sm-6" data-wow-delay=".1s">
-                                    <a class="overlay" href="./Images/<?php echo $currentImage->getImagePath(); ?>" title="<?php echo $currentImage->getDescription(); ?>">
-                                        <img src="./Images/<?php echo $currentImage->getImagePath(); ?>" alt="" />
+                                    <a class="overlay" href="./Resources/ImagesGalery/<?php echo $currentImage->getImagePath(); ?>" title="<?php echo $currentImage->getDescription(); ?>">
+                                        <img src="./Resources/ImagesGalery/<?php echo $currentImage->getImagePath(); ?>" alt="" />
                                         <span class="icon-focus item-icon"></span>
                                     </a>
                                 </div>

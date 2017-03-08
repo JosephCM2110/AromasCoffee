@@ -19,7 +19,7 @@ if (isset($_POST['create'])) {
         if (in_array($_FILES[$fileImage]['type'], $allowed) &&
                 $_FILES[$fileImage]['size'] <= $limit_kb * 1024) {
 
-            $path = "../Images/" . $_FILES[$fileImage]['name'];
+            $path = "../Resources/ImagesAchievement/" . $_FILES[$fileImage]['name'];
 
             /* verifiacion imagen a isertar no exista */
             if (!file_exists($path)) {
@@ -64,7 +64,7 @@ if (isset($_POST['create'])) {
     $achievementBusiness = new AchievementAdminBusiness();
     $result = $achievementBusiness->deleteTBAchievement($idAchievement);
     if($result){
-        unlink('../Images/'.$path);
+        unlink("../Resources/ImagesAchievement/".$path);
         header('location: ../PresentationAdmin/adminCreateDeleteAchievement.php?successDelete=success');
     }else{
         header('location: ../PresentationAdmin/adminCreateDeleteAchievement.php?errorDelete=success');

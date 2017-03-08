@@ -11,7 +11,7 @@
                 <!-- menu profile quick info -->
                 <div class="profile clearfix">
                     <div class="profile_pic">
-                        <img src="../Resources/Icons/FOTO AROMAS.jpg" alt="..." class="img-circle profile_img">
+                        <img style="width: 70px; height: 60px;"src="../Resources/Icons/FOTO AROMAS.jpg" alt="..." class="img-circle profile_img">
                     </div>
                     <div class="profile_info">
                         <span>¡Bienvenido!</span>
@@ -40,7 +40,8 @@
                                     <li><a href="adminInformationCharacteristics.php">Características</a></li>
                                     <li><a href="adminInformationProduct.php">Producto</a></li>
                                     <li><a href="adminInformationAchievement.php">Logros</a></li>
-                                    <li><a href="adminImages.php">Imagenes</a></li>
+                                    <li><a href="adminImagesProducts.php">Imágenes productos</a></li>
+                                    <li><a href="adminImagesGalery.php">Imágenes galería</a></li>
                                     <li><a href="adminInformationAdministrator.php">Usuarios</a></li>
                                 </ul>
                             </li>

@@ -46,6 +46,7 @@
         include './Business/AchievementBusiness.php';
         include './Business/PhoneBusiness.php';
         include './Business/EmailBusiness.php';
+        include './Business/CoffeeTourBusiness.php';
         include_once './Business/ValidatePHP.php';
         ?>
 
@@ -73,6 +74,9 @@
 
         $emailBusiness = new EmailBusiness();
         $emails = $emailBusiness->getAllTBEmails();
+
+        $coffeeTourBusiness = new CoffeeTourBusiness();
+        $coffeeTours = $coffeeTourBusiness->getAllTBCoffeeTours();
         ?>
 
         <!-- ========== preloader Start ========== -->
@@ -114,7 +118,8 @@
                         <li><a href="#offer">Productos</a></li>
                         <li><a href="#menu">Nuestro café</a></li>
                         <li><a href="#gallery">Galeria</a></li>
-                        <li><a href="#reviews">Nuestros logros</a></li>
+                        <li><a href="#reviews">Logros</a></li>
+                        <li><a href="#tour">Tour del café</a></li>
                         <li><a href="#contact">Contacto</a></li>
                     </ul>
                 </div>
@@ -148,7 +153,7 @@
                 <div class="row">
                     <div class="col-xs-12">
                         <div class="section-title text-center mb90 fadeIn animated wow" data-wow-delay=".2s">
-                            <h2>Nuestra historia</h2>
+                            <h2 class="zoom">Nuestra historia</h2>
                             <div class="title-seperator"></div>
                         </div>
                     </div>
@@ -508,7 +513,86 @@
 
             </div>
         </section>
-        
+
+        <section id="tour" class="pt100 pb100 our-story bg-dark" style="background-image: url('./StyleIndex/img/our-story-bg.png')">
+            <div class="container">
+                <!-- section title -->
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="section-title text-center mb90 fadeIn animated wow" data-wow-delay=".2s">
+                            <h2 class="zoom">Tour del café</h2>
+                            <div class="title-seperator"></div>
+                        </div>
+                    </div>
+                </div>
+                <!-- end section title-->
+                <?php foreach ($coffeeTours as $currentCoffeeTour) {
+                    ?>
+                    <div class="row">
+                        <div class="col-sm-8 text-center our-story-content col-sm-offset-2">
+                            <p class="fadeIn animated wow zoom" data-wow-delay=".1s">
+                                <?php
+                                echo substr($currentCoffeeTour->getDescriptionCoffeeTour(), 0, 275);
+                                ?>
+                            </p>
+                            <a href="#" class="buttons zoomIn animated wow" data-wow-delay=".2s" data-toggle="modal" data-target="#tourModal">Leer más</a>
+                        </div>
+                        <!-- full story modal-->
+                        <!-- Modal -->
+                        <div class="modal fade" id="tourModal" tabindex="-1" role="dialog">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header bg-dark">
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+
+                                    </div>
+                                    <div class="modal-body bg-dark">
+                                        <h3>Tour del café</h3>
+                                        <p>
+                                            <?php
+                                            echo nl2br($currentCoffeeTour->getDescriptionCoffeeTour());
+                                            ?>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <?php 
+                }
+                ?>
+
+            </div>
+        </section>
+
+        <?php
+        if (isset($_GET['success'])) {
+            echo '
+                <script>                
+                    $(document).ready(function(){
+                        modalSelect("¡El mensaje fue enviado correctamente!","Envío exitoso");
+                        $("#myModal").modal("show");
+                    });
+                </script>';
+        } else if (isset($_GET['error'])) {
+            echo '
+                <script>     
+                    $(document).ready(function(){
+                        modalSelect("¡El mensaje no se pudo enviar correctamente!","Envío fallido");
+                        $("#myModal").modal("show");
+                    });
+                </script>';
+        } else if (isset($_GET['errorCampos'])) {
+            echo '
+                <script>                
+                    $(document).ready(function(){
+                        modalSelect("¡El mensaje no se pudo enviar, campos vacíos en el formulario!","Envío fallido");
+                        $("#myModal").modal("show");
+                    });
+                </script>';
+        }
+        ?>
+
         <!-- ========== contact section ========== -->
         <section id="contact" class="pt100 pb100 bg-black">
 
@@ -667,8 +751,8 @@
                     </div>
                     <div class="modal-body bg-dark">
                         <ul>
-                            <li><a class="Desa1" href="https://www.facebook.com/michael.melendezm?fref=grp_mmbr_list"></a></li>
-                            <li><a class="Desa2" href="https://www.facebook.com/joseph.cordero.94?fref=grp_mmbr_list"></a></li>
+                            <li><a style="color: white" class="Desa1" href="https://www.facebook.com/michael.melendezm?fref=grp_mmbr_list"></a></li>
+                            <li><a style="color: white" class="Desa2" href="https://www.facebook.com/joseph.cordero.94?fref=grp_mmbr_list"></a></li>
                         </ul>
                     </div>
                 </div>

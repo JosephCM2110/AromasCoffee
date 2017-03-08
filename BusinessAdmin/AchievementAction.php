@@ -64,7 +64,7 @@ if (isset($_POST['create'])) {
     $achievementBusiness = new AchievementAdminBusiness();
     $result = $achievementBusiness->deleteTBAchievement($idAchievement);
     if($result){
-        unlink('../Images/'.$path);
+        unlink("../Resources/ImagesAchievement/".$path);
         header('location: ../PresentationAdmin/adminCreateDeleteAchievement.php?successDelete=success');
     }else{
         header('location: ../PresentationAdmin/adminCreateDeleteAchievement.php?errorDelete=success');

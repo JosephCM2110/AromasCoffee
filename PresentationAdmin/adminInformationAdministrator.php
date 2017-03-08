@@ -33,14 +33,13 @@ if (@session_start() == false) {
         <link href="../StyleAdmin/build/css/custom.min.css" rel="stylesheet">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
         <script src="../js/ValidateFiledsAdmin.js" type="text/javascript"></script>
-        
+
     </head>
 
     <body class="nav-md">
-        <?php include './reusableMenu.php'; 
- include_once '../BusinessAdmin/AdministratorBusiness.php';
-        
-        
+        <?php
+        include './reusableMenu.php';
+        include_once '../BusinessAdmin/AdministratorBusiness.php';
         ?>
         <!-- /top navigation -->
         <!-- page content -->
@@ -64,54 +63,49 @@ if (@session_start() == false) {
                                 <div class="bs-docs-section">
                                     <h1 id="glyphicons" class="page-header">Administrar información</h1>
                                     <div class="" role="tabpanel" data-example-id="togglable-tabs">
-                                        <form id="frmInformation" method="POST" action="" enctype="multipart/form-data">
-                                            <ul id="myTab" class="nav nav-tabs bar_tabs" role="tablist">
-                                                <li role="presentation" class="active">
-                                                    <a href="#tab_content1" id="home-tab" role="tab" data-toggle="tab" aria-expanded="true">Usuario</a>
-                                                </li>
-                                                <li role="presentation" ><div><input style=" background: #ffffff;" type="submit" class="btn btn-large btn-block" 
-                                                                                     value="Actualizar" onclick="return validateFieldsAdministrator()"/></div>
-                                                </li>   
-                                                <li role="presentation" class="">
-                                                    <a href="adminCreateDeleteAdministrator.php">Administrar usuarios</a>
-                                                </li>
-                                            </ul>
-                                            <div id="myTabContent" class="tab-content">
-                                                <div role="tabpanel" class="tab-pane fade active in" id="tab_content1" aria-labelledby="home-tab">
-                                                    <ul style="list-style: none;">
-                                                        <table>
-                                                            <tr>
-                                                                <th>Nombre usuario:</th>
-                                                                <th>Email:</th>
-                                                                <th>Contraseña:</th>
-                                                            </tr>
-                                                            <?php
-                                                            $administratorB = new AdministratorBusiness();
-                                                            $administrators = $administratorB->getAllTBuser();
-                                                            $maxEs = sizeof($administrators);
-                                                            for ($i = 0; $i < $maxEs; $i++) {
-                                                                $currentAdmin = $administrators[$i];
-                                                                ?>
+
+                                        <ul id="myTab" class="nav nav-tabs bar_tabs" role="tablist">
+                                            <li role="presentation" class="active">
+                                                <a href="#tab_content1" id="home-tab" role="tab" data-toggle="tab" aria-expanded="true">Usuario</a>
+                                            </li>                                                 
+                                            <li role="presentation" class="">
+                                                <a href="adminCreateDeleteAdministrator.php">Administrar usuarios</a>
+                                            </li>
+                                        </ul>
+                                        <div id="myTabContent" class="tab-content">
+                                            <div role="tabpanel" class="tab-pane fade active in" id="tab_content1" aria-labelledby="home-tab">
+                                                <ul style="list-style: none;">
+                                                    <table>
+                                                        <tr>
+                                                            <th>Nombre usuario:</th>
+                                                            <th>Email:</th>
+                                                            <th>Contraseña:</th>
+                                                        </tr>
+                                                        <?php
+                                                        $administratorB = new AdministratorBusiness();
+                                                        $administrators = $administratorB->getAllTBuser();
+                                                        $maxEs = sizeof($administrators);
+                                                        for ($i = 0; $i < $maxEs; $i++) {
+                                                            $currentAdmin = $administrators[$i];
+                                                            ?>
+                                                            <form method="POST" action="../BusinessAdmin/AdministratorAction.php">
                                                                 <tr>
-                                                                    <td><input style="border:none; width: 100%" type="text" id="txtName" name="txtName" value="<?php echo $currentAdmin->getUserName(); ?>"/><label style="color: red;" id="txtErrorName<?php echo $i; ?>"></label></td>
+                                                                    <td><input style="border:none; width: 100%" type="text" id="txtName" name="txtUserName" value="<?php echo $currentAdmin->getUserName(); ?>"/><label style="color: red;" id="txtErrorName<?php echo $i; ?>"></label></td>
                                                                     <td><input style="border:none; width: 100%" type="text" id="txtEmail" name="txtEmail" value="<?php echo $currentAdmin->getEmail(); ?>"/><label style="color: red;" id="txtErrorEmail<?php echo $i; ?>"></label></td>
-                                                                    <td><input readonly style="border:none; width: 100%" type="text" id="txtUserName" name="txtUserName" value="<?php echo $currentAdmin->getUserName(); ?>"/><label style="color: red;" id="txtErrorUserName<?php echo $i; ?>"></label></td>
                                                                     <td><input style="border:none; width: 100%" type="text" id="password" name="password" value="<?php echo $currentAdmin->getPassword(); ?>"/><label style="color: red;" id="txtErrorPassword<?php echo $i; ?>"></label></td>
+                                                                    <td><input type="submit" value="Actualizar"/></td>
                                                                 <input type="hidden" id="idAdministrator" name="idUser" value="<?php echo $currentAdmin->getIdUser(); ?>">
-                                                                
-                                                                <input type="hidden" id="count" name="count" value="<?php echo $i; ?>">
                                                                 <input type="hidden" id="update" name="update" value="update">
                                                                 </tr>
-
-                                                                <?php
-                                                            }
-                                                            ?>
-                                                        </table>
-                                                    </ul>
-                                                    <input type="hidden" id="countAdmin" name="countAdmin" value="<?php echo $i; ?>">
-                                                </div>
+                                                            </form>
+                                                            <?php
+                                                        }
+                                                        ?>
+                                                    </table>
+                                                </ul>
+                                                <input type="hidden" id="countAdmin" name="countAdmin" value="<?php echo $i; ?>">
                                             </div>
-                                        </form>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -192,10 +186,10 @@ if (isset($_GET['success'])) {
 }
 ?>
 <script>
-                                                                                         function modalSelect(modalMessage, modalTitle) {
-                                                                                             document.getElementsByClassName("modal-title")[0].textContent = modalTitle;
-                                                                                             document.getElementsByClassName("modal-body")[0].textContent = modalMessage;
-                                                                                         }
+    function modalSelect(modalMessage, modalTitle) {
+        document.getElementsByClassName("modal-title")[0].textContent = modalTitle;
+        document.getElementsByClassName("modal-body")[0].textContent = modalMessage;
+    }
 </script>
 
 

@@ -39,7 +39,7 @@
                                     <li><a href="adminInformationProduct.php">Producto</a></li>
                                     <li><a href="adminInformationAchievement.php">Logros</a></li>
                                     <li><a href="adminImages.php">Imagenes</a></li>
-                                    <li><a href="adminInfomationAdministrator.php">Usuarios</a></li>
+                                    <li><a href="adminInformationAdministrator.php">Usuarios</a></li>
                                 </ul>
                             </li>
 

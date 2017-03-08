@@ -33,9 +33,9 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
         <!-- teamplate colors -->
         <!-- <link rel="stylesheet" href="css/colors/turquoise.css">-->
-        <!-- <link rel="stylesheet" href="css/colors/light-green.css"> -->
+        <!--<link rel="stylesheet" href="css/colors/light-green.css">--> 
         <!-- <link rel="stylesheet" href="css/colors/purple.css"> -->
-        <!-- <link rel="stylesheet" href="css/colors/light-blue.css"> -->
+        <!--<link rel="stylesheet" href="css/colors/light-blue.css">--> 
         <!-- <link rel="stylesheet" href="css/colors/brown.css"> -->
 
         <?php

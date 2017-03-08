@@ -3,10 +3,6 @@
     <head>
         <!-- ========== Meta Tags ========== -->
         <meta charset="UTF-8">
-        <meta name="description" content="Koffie One Page HTML Landing Page">
-        <meta name="keywords" content="koffie, Bootstrap, Landing page, Template, Business, One page ">
-        <meta name="author" content="ThemeAtelier">
-        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
         <!-- ========== Title ========== -->
         <title>Café Aromas</title>
         <!-- ========== Favicon Ico ========== -->

@@ -23,9 +23,9 @@
     <body class="nav-md">
         <?php
         include './reusableMenu.php';
-        include_once '../BusinessAdmin/CharacteristicsAdminBusiness.php';
-        $characteristicsBusiness = new CharacteristicsAdminBusiness();
-        $result = $characteristicsBusiness->getAlltbCharacteristics();
+        include_once '../BusinessAdmin/ProductAdminBusiness.php';
+        $productBusiness = new ProductAdminBusiness();
+        $result = $productBusiness->getAllTBProducts();
         ?>
         <!-- /top navigation -->
         <!-- page content -->
@@ -52,24 +52,27 @@
 
                                         <ul id="myTab" class="nav nav-tabs bar_tabs" role="tablist">
                                             <li role="presentation" class="active">
-                                                <a href="#tab_content1" id="home-tab" role="tab" data-toggle="tab" aria-expanded="true">Características</a>
+                                                <a href="#tab_content1" id="home-tab" role="tab" data-toggle="tab" aria-expanded="true">Productos</a>
                                             </li>  
                                             <li role="presentation" class="">
-                                                <a href="adminCreateDeleteCharacteristics.php">Administrar características</a>
+                                                <a href="adminCreateDeleteProduct.php">Administrar productos</a>
                                             </li>
                                         </ul>
                                         <div id="myTabContent" class="tab-content">
                                             <div role="tabpanel" class="tab-pane fade active in" id="tab_content1" aria-labelledby="home-tab">
                                                 <ul>
                                                     <?php
-                                                    foreach ($result as $currentCharac) {
+                                                    foreach ($result as $currentProduct) {
                                                         ?> 
-                                                        <form id="frmInformation" method="POST" action="../BusinessAdmin/CharacteristicsAction.php">
-                                                            <li><input style="border:none; width: 80%;" type="text" id="txtCharacteristic" name="txtCharacteristic" value="<?php echo $currentCharac->getCharateristic(); ?>"/>
-                                                                <input type="submit" value="Actualizar"/></li><br>
-                                                            <input type="hidden" name="idCharacteristic" value="<?php echo $currentCharac->getIdCharacteristic(); ?>">
+                                                    <form id="frmInformation" method="POST" action="../BusinessAdmin/ProductAction.php">
+                                                            <li><input style="border:none; width: 80%;" type="text" id="txtNameProduct" name="txtNameProduct" value="<?php echo $currentProduct->getNameProduct(); ?>"/>
+                                                                </li><br>
+                                                            <li><textarea class="form-control text-justify" rows="5" id="txtDescriptionProduct" name="txtDescriptionProduct"><?php echo $currentProduct->getDescription(); ?>
+                                                                </textarea></li>
+                                                            <input type="hidden" name="idProduct" value="<?php echo $currentProduct->getIdProduct(); ?>">
                                                             <input type="hidden" name="update" value="update">
-
+                                                            <input type="submit" value="Actualizar"/><br>
+                                                            <div class="separator"></div>
                                                         </form>
                                                         <?php
                                                     }

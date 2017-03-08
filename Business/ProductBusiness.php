@@ -9,19 +9,6 @@ class ProductBusiness {
     function ProductBusiness() {
         $this->productData = new ProductData();
     }
-
-    public function insertTBProduct($product) {
-        return $this->productData->insertTBProduct($product);
-    }
-
-    public function updateTBProduct($product) {
-        return $this->productData->updateTBProduct($product);
-    }
-
-    public function deleteTBProduct($idProduct) {
-        return $this->productData->deleteTBProduct($idProduct);
-    }
-
     public function getAllTBProducts() {
         return $this->productData->getAllTBProducts();
     }

@@ -23,9 +23,9 @@
     <body class="nav-md">
         <?php
         include './reusableMenu.php';
-        include_once '../BusinessAdmin/CharacteristicsAdminBusiness.php';
-        $characteristicsBusiness = new CharacteristicsAdminBusiness();
-        $result = $characteristicsBusiness->getAlltbCharacteristics();
+        include_once '../BusinessAdmin/AchievementAdminBusiness.php';
+        $achievementBusiness = new AchievementAdminBusiness();
+        $result = $achievementBusiness->getAllTBTBAchievements();
         ?>
         <!-- /top navigation -->
         <!-- page content -->
@@ -52,22 +52,22 @@
 
                                         <ul id="myTab" class="nav nav-tabs bar_tabs" role="tablist">
                                             <li role="presentation" class="active">
-                                                <a href="#tab_content1" id="home-tab" role="tab" data-toggle="tab" aria-expanded="true">Características</a>
+                                                <a href="#tab_content1" id="home-tab" role="tab" data-toggle="tab" aria-expanded="true">Logros</a>
                                             </li>  
                                             <li role="presentation" class="">
-                                                <a href="adminCreateDeleteCharacteristics.php">Administrar características</a>
+                                                <a href="adminCreateDeleteAchievement.php">Administrar logros</a>
                                             </li>
                                         </ul>
                                         <div id="myTabContent" class="tab-content">
                                             <div role="tabpanel" class="tab-pane fade active in" id="tab_content1" aria-labelledby="home-tab">
                                                 <ul>
                                                     <?php
-                                                    foreach ($result as $currentCharac) {
+                                                    foreach ($result as $currentAchievement) {
                                                         ?> 
-                                                        <form id="frmInformation" method="POST" action="../BusinessAdmin/CharacteristicsAction.php">
-                                                            <li><input style="border:none; width: 80%;" type="text" id="txtCharacteristic" name="txtCharacteristic" value="<?php echo $currentCharac->getCharateristic(); ?>"/>
+                                                    <form id="frmInformation" method="POST" action="../BusinessAdmin/AchievementAction.php">
+                                                            <li><input style="border:none; width: 80%;" type="text" id="txtAchievement" name="txtAchievement" value="<?php echo $currentAchievement->getAchievement(); ?>"/>
                                                                 <input type="submit" value="Actualizar"/></li><br>
-                                                            <input type="hidden" name="idCharacteristic" value="<?php echo $currentCharac->getIdCharacteristic(); ?>">
+                                                            <input type="hidden" name="idAchievement" value="<?php echo $currentAchievement->getIdAchievement(); ?>">
                                                             <input type="hidden" name="update" value="update">
 
                                                         </form>

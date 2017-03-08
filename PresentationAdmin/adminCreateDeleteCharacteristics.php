@@ -18,18 +18,12 @@
 
         <!-- Custom styling plus plugins -->
         <link href="../StyleAdmin/build/css/custom.min.css" rel="stylesheet">
-
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-
     </head>
 
     <body class="nav-md">
-        <?php
-        include './reusableMenu.php';
-        include_once '../BusinessAdmin/OrganizationAdminBusiness.php';
-        $organizationBusiness = new OrganizationAdminBusiness();
-        $result = $organizationBusiness->getAllOrganization();
-        ?>               
+        <?php include './reusableMenu.php';
+        include_once '../BusinessAdmin/CharacteristicsAdminBusiness.php';
+        ?>
         <!-- page content -->
         <div class="right_col" role="main">
             <div class="">                       
@@ -51,23 +45,47 @@
                                 <div class="bs-docs-section">
                                     <h1 id="glyphicons" class="page-header">Administrar información</h1>
                                     <div class="" role="tabpanel" data-example-id="togglable-tabs">
-                                        <form id="frmInformation" method="POST" action="../BusinessAdmin/OrganizationAction.php">
+                                        <form id="frmInformation" method="POST" action="../BusinessAdmin/CharacteristicsAction.php">
                                             <ul id="myTab" class="nav nav-tabs bar_tabs" role="tablist">
                                                 <li role="presentation" class="active">
-                                                    <a href="#tab_content1" id="home-tab" role="tab" data-toggle="tab" aria-expanded="true">Misión</a>
-                                                </li>                                                
-                                                <li role="presentation" class=""><input style="background: #ffffff;" type="submit" class="btn btn-large btn-block" value="Actualizar"/>
+                                                    <a href="#tab_content1" id="home-tab" role="tab" data-toggle="tab" aria-expanded="true">Característica</a>
+                                                </li>                                                        
+                                                <li role="presentation" class=""><input style="background: #ffffff;" type="submit" class="btn btn-large btn-block" value="Registar"/>
+                                                </li>
+                                                <li role="presentation" class="">
+                                                    <a href="#tab_content2" role="tab" id="profile-tab" data-toggle="tab" aria-expanded="false">Eliminar característica</a>
                                                 </li>
                                             </ul>
                                             <div id="myTabContent" class="tab-content">
                                                 <div role="tabpanel" class="tab-pane fade active in" id="tab_content1" aria-labelledby="home-tab">
-                                                    <textarea id="txtMission" name="txtMission" class="form-control text-justify" rows="15" ><?php echo $result->getMission(); ?></textarea>
+                                                    <textarea id="txtCharacteristic" name="txtCharacteristic" class="form-control text-justify" rows="10" placeholder="Escriba el texto aquí" required=""></textarea>
                                                 </div>
-                                                <input type="hidden" name="mission">
+                                                <input type="hidden" name="create" value="create">  
+                                                <div role="tabpanel" class="tab-pane fade" id="tab_content2" aria-labelledby="profile-tab">
+                                                    <ul>
+                                                        <?php
+                                                        $characteristicsBusiness = new CharacteristicsAdminBusiness();
+                                                        $chara = $characteristicsBusiness->getAlltbCharacteristics();
+                                                        $maxEs = sizeof($chara);
+                                                        for ($j = 0; $j < $maxEs; $j++) {
+                                                            $currentChara = $chara[$j];
+                                                            ?>
+                                                            <form id="frmDelete" method="POST" action="../BusinessAdmin/CharacteristicsAction.php" enctype="multipart/form-data">
+                                                                <li><label style="width: 50%;"><?php echo $currentChara->getCharateristic(); ?></label>
+                                                                    <input type="submit" id="btnDelete" name="btnDelete" value="Eliminar"></li><br>
+                                                                <input type="hidden" id="idChara" name="idChara" value="<?php echo $currentChara->getIdCharacteristic(); ?>" />
+                                                                <input type="hidden" id="delete" name="delete" value="delete" />
+                                                            </form>
+                                                            <?php
+                                                        }
+                                                        ?>                                                        
+                                                    </ul>
+                                                </div>
 
                                             </div>
                                         </form>
                                     </div>
+
                                 </div>
                             </div>
                         </div>
@@ -80,14 +98,13 @@
         <!-- footer content -->
         <footer>
             <div class="pull-right">
-                café Aromas
+                Café Aromas
             </div>
             <div class="clearfix"></div>
         </footer>
         <!-- /footer content -->
     </div>
 </div>
-
 <!-- Modal
             ============================================= -->
 <div class="modal fade" id="myModal" role="dialog">
@@ -120,21 +137,35 @@
 if (isset($_GET['success'])) {
     echo '<script>                
             $(document).ready(function(){
-                modalSelect("¡La actualización fue exitosa!","Actualización");
+                modalSelect("¡El registro fue exitoso!","Registro");
                 $("#myModal").modal("show");
             });
         </script>';
 } else if (isset($_GET['error'])) {
     echo '<script>                
             $(document).ready(function(){
-                modalSelect("¡Error al actualizar!","Actualización");
+                modalSelect("¡Error al registar!","Registro");
                 $("#myModal").modal("show");
             });
         </script>';
 } else if (isset($_GET['errorData'])) {
     echo '<script>                
             $(document).ready(function(){
-                modalSelect("¡Debe ingresar todos los campos!","Actualización");
+                modalSelect("¡Debe ingresar todos los campos!","Registro");
+                $("#myModal").modal("show");
+            });
+        </script>';
+}if (isset($_GET['successDelete'])) {
+    echo '<script>                
+            $(document).ready(function(){
+                modalSelect("¡La eliminación fue exitosa!","Eliminación");
+                $("#myModal").modal("show");
+            });
+        </script>';
+} else if (isset($_GET['errorDelete'])) {
+    echo '<script>                
+            $(document).ready(function(){
+                modalSelect("¡Error al eliminar!","Eliminación");
                 $("#myModal").modal("show");
             });
         </script>';
@@ -146,9 +177,5 @@ if (isset($_GET['success'])) {
         document.getElementsByClassName("modal-body")[0].textContent = modalMessage;
     }
 </script>
-
-
-
-
 </body>
 </html>

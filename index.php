@@ -47,6 +47,7 @@
         include './Business/PhoneBusiness.php';
         include './Business/EmailBusiness.php';
         include './Business/CoffeeTourBusiness.php';
+        include_once './Business/ValidatePHP.php';
         ?>
 
     </head>
@@ -706,7 +707,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-sm-4 text-center-xs">
-                        <a href="./PresentationAdmin/login.php"><h3 class="logo animated fadeInLeft wow" data-wow-delay=".1s">Café Aromas</h3></a>
+                        <h3 class="logo animated fadeInLeft wow" data-wow-delay=".1s"><a class="logo animated fadeInLeft wow" href="./PresentationAdmin/login.php">Café Aromas</a></h3>
                     </div>
                     <div class="col-md-2">
                         <button style="color: #000;" onclick="return modalSelectDevelo('Michael Meléndez Mesén',

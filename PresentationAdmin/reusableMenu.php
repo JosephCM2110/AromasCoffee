@@ -16,7 +16,7 @@
                     <div class="profile_info">
                         <span>¡Bienvenido!</span>
                         <h2><?php 
-                        session_start();
+                        
                         echo $_SESSION['userName'];?></h2>
                     </div>
                 </div>

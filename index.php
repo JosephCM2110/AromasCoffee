@@ -6,7 +6,8 @@
         <!-- ========== Title ========== -->
         <title>Café Aromas</title>
         <!-- ========== Favicon Ico ========== -->
-        <link rel="icon" href="fav.ico">
+        <link rel="icon" href="./Resources/Icons/FOTO AROMAS.jpg" type="image/x-icon">
+        
         <!-- ========== STYLESHEETS ========== -->
         <!-- Bootstrap CSS -->
         <link href="./StyleIndex/css/bootstrap.min.css" rel="stylesheet">

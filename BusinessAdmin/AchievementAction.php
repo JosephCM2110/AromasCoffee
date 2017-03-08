@@ -19,7 +19,7 @@ if (isset($_POST['create'])) {
         if (in_array($_FILES[$fileImage]['type'], $allowed) &&
                 $_FILES[$fileImage]['size'] <= $limit_kb * 1024) {
 
-            $path = "../Images/" . $_FILES[$fileImage]['name'];
+            $path = "../Resources/ImagesAchievement/" . $_FILES[$fileImage]['name'];
 
             /* verifiacion imagen a isertar no exista */
             if (!file_exists($path)) {

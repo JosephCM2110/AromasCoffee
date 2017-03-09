@@ -7,7 +7,7 @@
         <title>Café Aromas</title>
         <!-- ========== Favicon Ico ========== -->
         <link rel="icon" href="./Resources/Icons/FOTO AROMAS.jpg" type="image/x-icon">
-        
+
         <!-- ========== STYLESHEETS ========== -->
         <!-- Bootstrap CSS -->
         <link href="./StyleIndex/css/bootstrap.min.css" rel="stylesheet">
@@ -39,11 +39,48 @@
         <!-- <link rel="stylesheet" href="css/colors/purple.css"> -->
         <!--<link rel="stylesheet" href="css/colors/light-blue.css">--> 
         <!-- <link rel="stylesheet" href="css/colors/brown.css"> -->
+
         <?php
-            include_once './Business/InstancesIndex.php';
+        include './Business/OrganizationBusiness.php';
+        include './Business/CharacteristicBusiness.php';
+        include './Business/ProductBusiness.php';
+        include './Business/DescriptiveSheetCofeeBusiness.php';
+        include './Business/AchievementBusiness.php';
+        include './Business/PhoneBusiness.php';
+        include './Business/EmailBusiness.php';
+        include './Business/CoffeeTourBusiness.php';
+        include './Business/ImageProductBusiness.php';
+        include './Business/ImageBusiness.php';
+        include_once './Business/ValidatePHP.php';
         ?>
+
     </head>
     <body>
+
+        <?php
+        $organizationBusiness = new OrganizationBusiness();
+        $organization = $organizationBusiness->getAllTBOrganizations();
+        $characteristicsBusiness = new CharacteristicBusiness();
+        $characteristics = $characteristicsBusiness->getAllTBCharacteristics();
+        $productBusiness = new ProductBusiness();
+        $products = $productBusiness->getAllTBProducts();
+
+        $imageProductBusiness = new ImageProductBusiness();
+        $descriptiveSheetCofeeBusiness = new DescriptiveSheetCofeeBusiness();
+        $descriptives = $descriptiveSheetCofeeBusiness->getAllTBDescriptiveSheetCofees();
+        $achievementBusiness = new AchievementBusiness();
+        $achievements = $achievementBusiness->getAllTBTBAchievements();
+        $phoneBusiness = new PhoneBusiness();
+        $phones = $phoneBusiness->getAllTBPhones();
+        $emailBusiness = new EmailBusiness();
+        $emails = $emailBusiness->getAllTBEmails();
+        $coffeeTourBusiness = new CoffeeTourBusiness();
+        $coffeeTours = $coffeeTourBusiness->getAllTBCoffeeTours();
+
+        $imageBusiness = new ImageBusiness();
+        $allImages = $imageBusiness->getAllTBImages();
+        ?>
+
         <!-- ========== preloader Start ========== -->
         <div class="preloader-wrap">
             <div class="preloader">
@@ -100,11 +137,11 @@
                 <?php
                 $cont = 0;
                 foreach ($allImages as $currentImage) {
-                    if($cont == 3){
+                    if ($cont == 3) {
                         break;
                     }
                     $cont++;
-                ?>
+                    ?>
                     <div class="slider_item">
                         <div class="slide-bg-image" style="background-image: url('./Resources/ImagesGalery/<?php echo $currentImage->getImagePath(); ?>')">
                             <div class="bg-overlay opacity-6"></div>
@@ -116,7 +153,7 @@
                             </div>
                         </div>
                     </div>
-                <?php
+                    <?php
                 }
                 ?>
             </div>
@@ -260,7 +297,7 @@
                                     <div class="flipper">
                                         <div class="front">
                                             <img src="./Resources/ImagesProducts/<?php echo $productImages[0]->getImagePath(); ?>" width="220px" height="290px" />
-                                            
+
                                         </div>
                                         <div class="back">
                                             <img src="./Resources/ImagesProducts/<?php echo $productImages[1]->getImagePath(); ?>" width="220px" height="290px" />
@@ -391,7 +428,7 @@
                     <div class="col-sm-12">
                         <div class="zoom-gallery">
                             <?php
-                            foreach($allImages as $currentImage) {
+                            foreach ($allImages as $currentImage) {
                                 ?>
                                 <div class="grid-item col-sm-6" data-wow-delay=".1s">
                                     <a class="overlay" href="./Resources/ImagesGalery/<?php echo $currentImage->getImagePath(); ?>" title="<?php echo $currentImage->getDescription(); ?>">
@@ -452,6 +489,8 @@
                         </div>
                     </div>
                 </div>
+
+
             </div>
         </section>
 
@@ -485,6 +524,7 @@
                                 <div class="modal-content">
                                     <div class="modal-header bg-dark">
                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+
                                     </div>
                                     <div class="modal-body bg-dark">
                                         <h3 class="text-center">Tour del café</h3>
@@ -498,7 +538,7 @@
                             </div>
                         </div>
                     </div>
-                    <?php 
+                    <?php
                 }
                 ?>
 
@@ -678,7 +718,6 @@
             function modalSelectDevelo(name1, name2) {
                 document.getElementsByClassName("Desa1")[0].textContent = name1;
                 document.getElementsByClassName("Desa2")[0].textContent = name2;
-
             }
         </script> 
         <!-- ========== footer section End ========== -->

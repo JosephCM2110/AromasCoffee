@@ -31,14 +31,16 @@ if (@session_start() == false) {
 
         <!-- Custom styling plus plugins -->
         <link href="../StyleAdmin/build/css/custom.min.css" rel="stylesheet">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <script src="../StyleAdmin/js/ValidationJS/ValidateFiledsAdmin.js" type="text/javascript"></script>
     </head>
 
     <body class="nav-md">
         <?php
         include './reusableMenu.php';
-        include_once '../BusinessAdmin/ProductAdminBusiness.php';
-        $productBusiness = new ProductAdminBusiness();
-        $result = $productBusiness->getAllTBProducts();
+        include_once '../BusinessAdmin/DescriptiveSheetCoffeeAdminBusiness.php';
+        $descriptiveSheetCofeeBusiness = new DescriptiveSheetCofeeAdminBusiness();
+        $result = $descriptiveSheetCofeeBusiness->getAllTBDescriptiveSheetCofees();
         ?>
         <!-- /top navigation -->
         <!-- page content -->
@@ -65,32 +67,31 @@ if (@session_start() == false) {
 
                                         <ul id="myTab" class="nav nav-tabs bar_tabs" role="tablist">
                                             <li role="presentation" class="active">
-                                                <a href="#tab_content1" id="home-tab" role="tab" data-toggle="tab" aria-expanded="true">Productos</a>
+                                                <a href="#tab_content1" id="home-tab" role="tab" data-toggle="tab" aria-expanded="true">Ficha descriptiva del café</a>
                                             </li>  
-                                            <li role="presentation" class="">
-                                                <a href="adminCreateDeleteProduct.php">Administrar productos</a>
-                                            </li>
                                         </ul>
                                         <div id="myTabContent" class="tab-content">
                                             <div role="tabpanel" class="tab-pane fade active in" id="tab_content1" aria-labelledby="home-tab">
                                                 <ul>
-                                                    <?php
-                                                    foreach ($result as $currentProduct) {
-                                                        ?> 
-                                                    <form id="frmInformation" method="POST" action="../BusinessAdmin/ProductAction.php">
-                                                            <li><input style="border:none; width: 80%;" type="text" id="txtNameProduct" name="txtNameProduct" value="<?php echo $currentProduct->getNameProduct(); ?>"/>
-                                                                </li><br>
-                                                            <li><textarea class="form-control text-justify" rows="5" id="txtDescriptionProduct" name="txtDescriptionProduct"><?php echo $currentProduct->getDescription(); ?>
-                                                                </textarea></li>
-                                                            <input type="hidden" name="idProduct" value="<?php echo $currentProduct->getIdProduct(); ?>">
-                                                            <input type="hidden" name="update" value="update">
-                                                            <input type="submit" value="Actualizar"/><br>
-                                                            <div class="separator"></div>
-                                                        </form>
-                                                        <?php
-                                                    }
-                                                    ?>                                                                                                                 
-
+                                                    <form id="frmInformation" method="POST" action="../BusinessAdmin/DescriptiveSheetCoffeeAction.php">
+                                                        <input type="hidden" name="idDescriptiveSheetCofee" value="<?php echo $result->getIdDescriptiveSheetCofee(); ?>">
+                                                        <li>Región del café</li>
+                                                        <input name="coffeeRegion" id="coffeeRegion" value="<?php echo $result->getCofeeRegion(); ?>" />
+                                                        <li>Caracteristicas de la región</li>
+                                                        <textarea name="characteristicRegion" id="characteristicRegion"><?php echo $result->getCharacteristicRegion(); ?></textarea>
+                                                        <li>Altura</li>
+                                                        <input type="text" name="heigth" id="heigth" value="<?php echo $result->getHeight(); ?>" />
+                                                        <li>Variedades de café</li>
+                                                        <textarea name="varietiesCoffee" id="varietiesCoffee"><?php echo $result->getVarietiesCofee(); ?></textarea>
+                                                        <li>Periodo de cosecha</li>
+                                                        <textarea id="harvestPeriod" name="harvestPeriod"><?php echo $result->getHarvestPeriod(); ?></textarea>
+                                                        <li>Tipo de secado</li>
+                                                        <textarea name="driedType" id="driedType"><?php echo $result->getDriedType(); ?></textarea><br>
+                                                        <label style="color: #BA2121;" id="txtError"></label><br>
+                                                        <br><br>
+                                                        <input type="submit" value="Actualizar" name="update" id="update" onclick="return validateFieldsDescriptiveSheetCoffee()" /><br>
+                                                        <div class="separator"></div>
+                                                    </form>
                                                 </ul>
                                             </div>
 

@@ -214,3 +214,41 @@ function validateFieldsAchievement() {
 
     return true;
 }
+
+function validateFieldsCoffeeTour() {
+
+    var fieldDescriptionTour = document.getElementById('descriptionTour');
+
+    if (fieldDescriptionTour.value.length < 2) {
+        document.getElementById('txtError').innerHTML = "*espacio vacío";
+        document.getElementById('txtError').style.visibility = "visible";
+        return false;
+    } else {
+        document.getElementById('txtError').style.visibility = "hidden";
+    }
+    return true;
+}
+
+function validateFieldsDescriptiveSheetCoffee() {
+
+    var coffeeRegion = document.getElementById('coffeeRegion');
+    var characteristicRegion = document.getElementById('characteristicRegion');
+    var heigth = document.getElementById('heigth');
+    var varietiesCoffee = document.getElementById('varietiesCoffee');
+    var harvestPeriod = document.getElementById('harvestPeriod');
+    var driedType = document.getElementById('driedType');
+
+    if (coffeeRegion.value.length < 2 ||
+        characteristicRegion.value.length < 2 ||
+        heigth.value.length < 2 ||
+        varietiesCoffee.value.length < 2 ||
+        harvestPeriod.value.length < 2 ||
+        driedType.value.length < 2 ) {
+        document.getElementById('txtError').innerHTML = "*espacio vacío";
+        document.getElementById('txtError').style.visibility = "visible";
+        return false;
+    } else {
+        document.getElementById('txtError').style.visibility = "hidden";
+    }
+    return true;
+}

@@ -43,6 +43,8 @@
                                     <li><a href="adminImagesProducts.php">Imágenes productos</a></li>
                                     <li><a href="adminImagesGalery.php">Imágenes galería</a></li>
                                     <li><a href="adminInformationAdministrator.php">Usuarios</a></li>
+                                    <li><a href="adminInformationDescriptivesheetcofee.php">Ficha descriptiva del café</a></li>
+                                    <li><a href="adminInformationCoffeeTour.php">Tour del café</a></li>
                                 </ul>
                             </li>
 

@@ -37,12 +37,12 @@ if (@session_start() == false) {
 
     <body class="nav-md">
         <?php
-        include '../BusinessAdmin/ValidationPHP.php';
         include './reusableMenu.php';
-        include_once '../BusinessAdmin/OrganizationAdminBusiness.php';
-        $organizationBusiness = new OrganizationAdminBusiness();
-        $result = $organizationBusiness->getAllOrganization();
+        include_once '../BusinessAdmin/CoffeeTourBusinessAdmin.php';
+        $coffeeTourBusiness = new CoffeeTourBusinessAdmin();
+        $result = $coffeeTourBusiness->getAllTBCoffeeTours();
         ?>
+        <!-- /top navigation -->
         <!-- page content -->
         <div class="right_col" role="main">
             <div class="">                       
@@ -64,21 +64,34 @@ if (@session_start() == false) {
                                 <div class="bs-docs-section">
                                     <h1 id="glyphicons" class="page-header">Administrar información</h1>
                                     <div class="" role="tabpanel" data-example-id="togglable-tabs">
-                                        <form id="frmInformation" method="POST" action="../BusinessAdmin/OrganizationAction.php">
-                                            <ul id="myTab" class="nav nav-tabs bar_tabs" role="tablist">
-                                                <li role="presentation" class="active"><a href="#tab_content1" id="home-tab" role="tab" data-toggle="tab" aria-expanded="true">Historia</a>
-                                                </li>
-                                                <li role="presentation" class=""><input style="background: #ffffff;" type="submit" onclick="return validateFieldsHistory()" class="btn btn-large btn-block" value="Actualizar"/>
-                                                </li>
-                                            </ul>
-                                            <div id="myTabContent" class="tab-content">
-                                                <div role="tabpanel" class="tab-pane fade active in" id="tab_content1" aria-labelledby="home-tab">
-                                                    <textarea id="txtHistory" name="txtHistory" class="form-control text-justify" rows="15" ><?php echo $result->getHistory();?></textarea>
-                                                </div>
-                                                <input type="hidden" name="history">
-                                                <label style="color: #BA2121;" id="txtError"></label>
+
+                                        <ul id="myTab" class="nav nav-tabs bar_tabs" role="tablist">
+                                            <li role="presentation" class="active">
+                                                <a href="#tab_content1" id="home-tab" role="tab" data-toggle="tab" aria-expanded="true">Café Tour</a>
+                                            </li>  
+                                        </ul>
+                                        <div id="myTabContent" class="tab-content">
+                                            <div role="tabpanel" class="tab-pane fade active in" id="tab_content1" aria-labelledby="home-tab">
+                                                <ul>
+                                                    <?php
+                                                    foreach($result as $currentTour){
+                                                        ?>
+                                                        <form id="frmInformation" method="POST" action="../BusinessAdmin/coffeeTourAction.php">
+                                                            <input type="hidden" name="idCoffeeTour" value="<?php echo $currentTour->getIdCoffeeTour(); ?>">
+                                                            <li>Región del café</li>
+                                                            <textarea style="width: 700px; height: 300px;" name="descriptionTour" id="descriptionTour"><?php echo $currentTour->getDescriptionCoffeeTour(); ?></textarea>
+                                                            <br><br>
+                                                            <label style="color: #BA2121;" id="txtError"></label><br>
+                                                            <input type="submit" value="Actualizar" name="update" id="update" onclick="return validateFieldsCoffeeTour()" /><br>
+                                                            <div class="separator"></div>
+                                                        </form>
+                                                        <?php
+                                                    }
+                                                    ?>
+                                                </ul>
                                             </div>
-                                        </form>
+
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -99,8 +112,6 @@ if (@session_start() == false) {
         <!-- /footer content -->
     </div>
 </div>
-
-
 <!-- Modal
             ============================================= -->
 <div class="modal fade" id="myModal" role="dialog">
@@ -118,7 +129,6 @@ if (@session_start() == false) {
     </div>
 </div>
 
-
 <!-- jQuery -->
 <script src="../StyleAdmin/vendors/jquery/dist/jquery.min.js"></script>
 <!-- Bootstrap -->
@@ -131,13 +141,35 @@ if (@session_start() == false) {
 <!-- Custom Theme Scripts -->
 <script src="../StyleAdmin/build/js/custom.min.js"></script>
 
+<?php
+if (isset($_GET['success'])) {
+    echo '<script>                
+            $(document).ready(function(){
+                modalSelect("¡La actualización fue exitosa!","Actualización");
+                $("#myModal").modal("show");
+            });
+        </script>';
+} else if (isset($_GET['error'])) {
+    echo '<script>                
+            $(document).ready(function(){
+                modalSelect("¡Error al actualizar!","Actualización");
+                $("#myModal").modal("show");
+            });
+        </script>';
+} else if (isset($_GET['errorData'])) {
+    echo '<script>                
+            $(document).ready(function(){
+                modalSelect("¡Debe ingresar todos los campos!","Actualización");
+                $("#myModal").modal("show");
+            });
+        </script>';
+}
+?>
 <script>
     function modalSelect(modalMessage, modalTitle) {
         document.getElementsByClassName("modal-title")[0].textContent = modalTitle;
         document.getElementsByClassName("modal-body")[0].textContent = modalMessage;
     }
 </script>
-
-
 </body>
 </html>

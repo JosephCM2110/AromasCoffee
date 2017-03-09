@@ -7,7 +7,6 @@
         <title>Café Aromas</title>
         <!-- ========== Favicon Ico ========== -->
         <link rel="icon" href="./Resources/Icons/FOTO AROMAS.jpg" type="image/x-icon">
-
         <!-- ========== STYLESHEETS ========== -->
         <!-- Bootstrap CSS -->
         <link href="./StyleIndex/css/bootstrap.min.css" rel="stylesheet">
@@ -33,52 +32,11 @@
         <script src="StyleIndex/js/validateFields.js" type="text/javascript"></script>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">        
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-        <!-- teamplate colors -->
-        <!-- <link rel="stylesheet" href="css/colors/turquoise.css">-->
-        <!--<link rel="stylesheet" href="css/colors/light-green.css">--> 
-        <!-- <link rel="stylesheet" href="css/colors/purple.css"> -->
-        <!--<link rel="stylesheet" href="css/colors/light-blue.css">--> 
-        <!-- <link rel="stylesheet" href="css/colors/brown.css"> -->
-
-        <?php
-        include './Business/OrganizationBusiness.php';
-        include './Business/CharacteristicBusiness.php';
-        include './Business/ProductBusiness.php';
-        include './Business/DescriptiveSheetCofeeBusiness.php';
-        include './Business/AchievementBusiness.php';
-        include './Business/PhoneBusiness.php';
-        include './Business/EmailBusiness.php';
-        include './Business/CoffeeTourBusiness.php';
-        include './Business/ImageProductBusiness.php';
-        include './Business/ImageBusiness.php';
-        include_once './Business/ValidatePHP.php';
-        ?>
-
     </head>
     <body>
 
         <?php
-        $organizationBusiness = new OrganizationBusiness();
-        $organization = $organizationBusiness->getAllTBOrganizations();
-        $characteristicsBusiness = new CharacteristicBusiness();
-        $characteristics = $characteristicsBusiness->getAllTBCharacteristics();
-        $productBusiness = new ProductBusiness();
-        $products = $productBusiness->getAllTBProducts();
-
-        $imageProductBusiness = new ImageProductBusiness();
-        $descriptiveSheetCofeeBusiness = new DescriptiveSheetCofeeBusiness();
-        $descriptives = $descriptiveSheetCofeeBusiness->getAllTBDescriptiveSheetCofees();
-        $achievementBusiness = new AchievementBusiness();
-        $achievements = $achievementBusiness->getAllTBTBAchievements();
-        $phoneBusiness = new PhoneBusiness();
-        $phones = $phoneBusiness->getAllTBPhones();
-        $emailBusiness = new EmailBusiness();
-        $emails = $emailBusiness->getAllTBEmails();
-        $coffeeTourBusiness = new CoffeeTourBusiness();
-        $coffeeTours = $coffeeTourBusiness->getAllTBCoffeeTours();
-
-        $imageBusiness = new ImageBusiness();
-        $allImages = $imageBusiness->getAllTBImages();
+        include_once './Business/InstancesIndex.php';
         ?>
 
         <!-- ========== preloader Start ========== -->

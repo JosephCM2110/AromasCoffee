@@ -36,6 +36,7 @@ if (@session_start() == false) {
 
     <body class="nav-md">
         <?php
+        include '../BusinessAdmin/ValidationPHP.php';
         include './reusableMenu.php';
         include_once '../BusinessAdmin/AchievementAdminBusiness.php';
         ?>
@@ -74,9 +75,7 @@ if (@session_start() == false) {
                                             <div id="myTabContent" class="tab-content">
                                                 <div role="tabpanel" class="tab-pane fade active in" id="tab_content1" aria-labelledby="home-tab">
                                                     <textarea id="txtAchievement" name="txtAchievement" class="form-control text-justify" rows="10" placeholder="Escriba el texto aquí" required=""></textarea>
-                                                    <label>Imagen:</label>
-                                                    <input type="file" id="fileImage" name="fileImage">
-                                                    <input type="hidden" name="create" value="create">
+                                                    <input type="hidden" id="delete" name="create" value="create" />
                                                     <label id="txtError" style="color: #880000;"></label>
                                                 </div>
 
@@ -153,58 +152,7 @@ if (@session_start() == false) {
 
 <!-- Custom Theme Scripts -->
 <script src="../StyleAdmin/build/js/custom.min.js"></script>
-<?php
-if (isset($_GET['success'])) {
-    echo '<script>                
-            $(document).ready(function(){
-                modalSelect("¡El registro fue exitoso!","Registro");
-                $("#myModal").modal("show");
-            });
-        </script>';
-} else if (isset($_GET['error'])) {
-    echo '<script>                
-            $(document).ready(function(){
-                modalSelect("¡Error al registar!","Registro");
-                $("#myModal").modal("show");
-            });
-        </script>';
-} else if (isset($_GET['errorData'])) {
-    echo '<script>                
-            $(document).ready(function(){
-                modalSelect("¡Debe ingresar todos los campos!","Registro");
-                $("#myModal").modal("show");
-            });
-        </script>';
-}if (isset($_GET['successDelete'])) {
-    echo '<script>                
-            $(document).ready(function(){
-                modalSelect("¡La eliminación fue exitosa!","Eliminación");
-                $("#myModal").modal("show");
-            });
-        </script>';
-} else if (isset($_GET['errorDelete'])) {
-    echo '<script>                
-            $(document).ready(function(){
-                modalSelect("¡Error al eliminar!","Eliminación");
-                $("#myModal").modal("show");
-            });
-        </script>';
-} else if (isset($_GET['errorExis'])) {
-    echo '<script>                
-            $(document).ready(function(){
-                modalSelect("¡Error la imagen ya existe!","Registro");
-                $("#myModal").modal("show");
-            });
-        </script>';
-} else if (isset($_GET['errorSize'])) {
-    echo '<script>                
-            $(document).ready(function(){
-                modalSelect("¡Tamaño de imagen superior al máximo!","Registro");
-                $("#myModal").modal("show");
-            });
-        </script>';
-}
-?>
+
 <script>
     function modalSelect(modalMessage, modalTitle) {
         document.getElementsByClassName("modal-title")[0].textContent = modalTitle;

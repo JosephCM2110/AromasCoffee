@@ -37,6 +37,7 @@ if (@session_start() == false) {
 
     <body class="nav-md">
         <?php
+        include '../BusinessAdmin/ValidationPHP.php';
         include './reusableMenu.php';
         include_once '../BusinessAdmin/AdministratorBusiness.php';
         ?>
@@ -155,44 +156,6 @@ if (@session_start() == false) {
 
 <!-- Custom Theme Scripts -->
 <script src="../StyleAdmin/build/js/custom.min.js"></script>
-<?php
-if (isset($_GET['success'])) {
-    echo '<script>                
-            $(document).ready(function(){
-                modalSelect("¡La actualización fue exitosa!","Actualización");
-                $("#myModal").modal("show");
-            });
-        </script>';
-} else if (isset($_GET['errorUpdate'])) {
-    echo '<script>                
-            $(document).ready(function(){
-                modalSelect("¡Error al actualizar!","Actualización");
-                $("#myModal").modal("show");
-            });
-        </script>';
-} else if (isset($_GET['errorExis'])) {
-    echo '<script>                
-            $(document).ready(function(){
-                modalSelect("¡El archivo ya existe!","Actualización");
-                $("#myModal").modal("show");
-            });
-        </script>';
-} else if (isset($_GET['errorSize'])) {
-    echo '<script>                
-            $(document).ready(function(){
-                modalSelect("¡El tamaño del archivo es mayor al permitido!","Actualización");
-                $("#myModal").modal("show");
-            });
-        </script>';
-} else if (isset($_GET['errorData'])) {
-    echo '<script>                
-            $(document).ready(function(){
-                modalSelect("¡Debe ingresar todos los datos!","Registro");
-                $("#myModal").modal("show");
-            });
-        </script>';
-}
-?>
 <script>
                                                                     function modalSelect(modalMessage, modalTitle) {
                                                                         document.getElementsByClassName("modal-title")[0].textContent = modalTitle;

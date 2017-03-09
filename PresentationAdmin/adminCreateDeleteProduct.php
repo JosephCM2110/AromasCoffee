@@ -35,7 +35,9 @@ if (@session_start() == false) {
     </head>
 
     <body class="nav-md">
-        <?php include './reusableMenu.php';
+        <?php 
+        include '../BusinessAdmin/ValidationPHP.php';
+        include './reusableMenu.php';
         include_once '../BusinessAdmin/ProductAdminBusiness.php';
         ?>
         <!-- page content -->
@@ -152,44 +154,6 @@ if (@session_start() == false) {
 
 <!-- Custom Theme Scripts -->
 <script src="../StyleAdmin/build/js/custom.min.js"></script>
-<?php
-if (isset($_GET['success'])) {
-    echo '<script>                
-            $(document).ready(function(){
-                modalSelect("¡El registro fue exitoso!","Registro");
-                $("#myModal").modal("show");
-            });
-        </script>';
-} else if (isset($_GET['error'])) {
-    echo '<script>                
-            $(document).ready(function(){
-                modalSelect("¡Error al registar!","Registro");
-                $("#myModal").modal("show");
-            });
-        </script>';
-} else if (isset($_GET['errorData'])) {
-    echo '<script>                
-            $(document).ready(function(){
-                modalSelect("¡Debe ingresar todos los campos!","Registro");
-                $("#myModal").modal("show");
-            });
-        </script>';
-}if (isset($_GET['successDelete'])) {
-    echo '<script>                
-            $(document).ready(function(){
-                modalSelect("¡La eliminación fue exitosa!","Eliminación");
-                $("#myModal").modal("show");
-            });
-        </script>';
-} else if (isset($_GET['errorDelete'])) {
-    echo '<script>                
-            $(document).ready(function(){
-                modalSelect("¡Error al eliminar!","Eliminación");
-                $("#myModal").modal("show");
-            });
-        </script>';
-}
-?>
 <script>
     function modalSelect(modalMessage, modalTitle) {
         document.getElementsByClassName("modal-title")[0].textContent = modalTitle;

@@ -36,6 +36,7 @@ if (@session_start() == false) {
 
     <body class="nav-md">
         <?php
+        include '../BusinessAdmin/ValidationPHP.php';
         include './reusableMenu.php';
         include_once '../BusinessAdmin/AchievementAdminBusiness.php';
         $achievementBusiness = new AchievementAdminBusiness();
@@ -146,30 +147,6 @@ if (@session_start() == false) {
 <!-- Custom Theme Scripts -->
 <script src="../StyleAdmin/build/js/custom.min.js"></script>
 
-<?php
-if (isset($_GET['success'])) {
-    echo '<script>                
-            $(document).ready(function(){
-                modalSelect("¡La actualización fue exitosa!","Actualización");
-                $("#myModal").modal("show");
-            });
-        </script>';
-} else if (isset($_GET['error'])) {
-    echo '<script>                
-            $(document).ready(function(){
-                modalSelect("¡Error al actualizar!","Actualización");
-                $("#myModal").modal("show");
-            });
-        </script>';
-} else if (isset($_GET['errorData'])) {
-    echo '<script>                
-            $(document).ready(function(){
-                modalSelect("¡Debe ingresar todos los campos!","Actualización");
-                $("#myModal").modal("show");
-            });
-        </script>';
-}
-?>
 <script>
     function modalSelect(modalMessage, modalTitle) {
         document.getElementsByClassName("modal-title")[0].textContent = modalTitle;

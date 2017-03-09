@@ -39,55 +39,11 @@
         <!-- <link rel="stylesheet" href="css/colors/purple.css"> -->
         <!--<link rel="stylesheet" href="css/colors/light-blue.css">--> 
         <!-- <link rel="stylesheet" href="css/colors/brown.css"> -->
-
         <?php
-        include './Business/OrganizationBusiness.php';
-        include './Business/CharacteristicBusiness.php';
-        include './Business/ProductBusiness.php';
-        include './Business/DescriptiveSheetCofeeBusiness.php';
-        include './Business/AchievementBusiness.php';
-        include './Business/PhoneBusiness.php';
-        include './Business/EmailBusiness.php';
-        include './Business/CoffeeTourBusiness.php';
-        include './Business/ImageProductBusiness.php';
-        include './Business/ImageBusiness.php';
-        include_once './Business/ValidatePHP.php';
+            include_once './Business/InstancesIndex.php';
         ?>
-
     </head>
     <body>
-
-        <?php
-        $organizationBusiness = new OrganizationBusiness();
-        $organization = $organizationBusiness->getAllTBOrganizations();
-
-        $characteristicsBusiness = new CharacteristicBusiness();
-        $characteristics = $characteristicsBusiness->getAllTBCharacteristics();
-
-        $productBusiness = new ProductBusiness();
-        $products = $productBusiness->getAllTBProducts();
-        
-        $imageProductBusiness = new ImageProductBusiness();
-
-        $descriptiveSheetCofeeBusiness = new DescriptiveSheetCofeeBusiness();
-        $descriptives = $descriptiveSheetCofeeBusiness->getAllTBDescriptiveSheetCofees();
-
-        $achievementBusiness = new AchievementBusiness();
-        $achievements = $achievementBusiness->getAllTBTBAchievements();
-
-        $phoneBusiness = new PhoneBusiness();
-        $phones = $phoneBusiness->getAllTBPhones();
-
-        $emailBusiness = new EmailBusiness();
-        $emails = $emailBusiness->getAllTBEmails();
-
-        $coffeeTourBusiness = new CoffeeTourBusiness();
-        $coffeeTours = $coffeeTourBusiness->getAllTBCoffeeTours();
-        
-        $imageBusiness = new ImageBusiness();
-        $allImages = $imageBusiness->getAllTBImages();
-        ?>
-
         <!-- ========== preloader Start ========== -->
         <div class="preloader-wrap">
             <div class="preloader">
@@ -496,8 +452,6 @@
                         </div>
                     </div>
                 </div>
-
-
             </div>
         </section>
 
@@ -531,7 +485,6 @@
                                 <div class="modal-content">
                                     <div class="modal-header bg-dark">
                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-
                                     </div>
                                     <div class="modal-body bg-dark">
                                         <h3 class="text-center">Tour del café</h3>
@@ -551,35 +504,6 @@
 
             </div>
         </section>
-
-        <?php
-        if (isset($_GET['success'])) {
-            echo '
-                <script>                
-                    $(document).ready(function(){
-                        modalSelect("¡El mensaje fue enviado correctamente!","Envío exitoso");
-                        $("#myModal").modal("show");
-                    });
-                </script>';
-        } else if (isset($_GET['error'])) {
-            echo '
-                <script>     
-                    $(document).ready(function(){
-                        modalSelect("¡El mensaje no se pudo enviar correctamente!","Envío fallido");
-                        $("#myModal").modal("show");
-                    });
-                </script>';
-        } else if (isset($_GET['errorCampos'])) {
-            echo '
-                <script>                
-                    $(document).ready(function(){
-                        modalSelect("¡El mensaje no se pudo enviar, campos vacíos en el formulario!","Envío fallido");
-                        $("#myModal").modal("show");
-                    });
-                </script>';
-        }
-        ?>
-
         <!-- ========== contact section ========== -->
         <section id="contact" class="pt100 pb100 bg-black">
 

@@ -55,6 +55,8 @@ if (isset($_POST['create'])) {
         }else{
             header('location: ../PresentationAdmin/adminInformationAchievement.php?error=error');
         }
+    }else{
+        header('location: ../PresentationAdmin/adminInformationAchievement.php?errorData=error');
     }
     
 } else if ($_POST['delete']) {

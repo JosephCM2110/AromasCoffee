@@ -32,6 +32,7 @@ if (@session_start() == false) {
         <!-- Custom styling plus plugins -->
         <link href="../StyleAdmin/build/css/custom.min.css" rel="stylesheet">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <script src="../StyleAdmin/js/ValidationJS/ValidateFiledsAdmin.js" type="text/javascript"></script>
     </head>
 
     <body class="nav-md">
@@ -66,7 +67,7 @@ if (@session_start() == false) {
                                             <ul id="myTab" class="nav nav-tabs bar_tabs" role="tablist">
                                                 <li role="presentation" class="active"><a href="#tab_content1" id="home-tab" role="tab" data-toggle="tab" aria-expanded="true">Historia</a>
                                                 </li>
-                                                <li role="presentation" class=""><input style="background: #ffffff;" type="submit" class="btn btn-large btn-block" value="Actualizar"/>
+                                                <li role="presentation" class=""><input style="background: #ffffff;" type="submit" onclick="return validateFieldsHistory()" class="btn btn-large btn-block" value="Actualizar"/>
                                                 </li>
                                             </ul>
                                             <div id="myTabContent" class="tab-content">
@@ -74,7 +75,7 @@ if (@session_start() == false) {
                                                     <textarea id="txtHistory" name="txtHistory" class="form-control text-justify" rows="15" ><?php echo $result->getHistory();?></textarea>
                                                 </div>
                                                 <input type="hidden" name="history">
-
+                                                <label style="color: #BA2121;" id="txtError"></labe>
                                             </div>
                                         </form>
                                     </div>

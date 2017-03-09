@@ -33,6 +33,7 @@ if (@session_start() == false) {
         <link href="../StyleAdmin/build/css/custom.min.css" rel="stylesheet">
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <script src="../StyleAdmin/js/ValidationJS/ValidateFiledsAdmin.js" type="text/javascript"></script>
 
     </head>
 
@@ -69,7 +70,7 @@ if (@session_start() == false) {
                                                 <li role="presentation" class="active">
                                                     <a href="#tab_content1" id="home-tab" role="tab" data-toggle="tab" aria-expanded="true">Misión</a>
                                                 </li>                                                
-                                                <li role="presentation" class=""><input style="background: #ffffff;" type="submit" class="btn btn-large btn-block" value="Actualizar"/>
+                                                <li role="presentation" class=""><input style="background: #ffffff;" type="submit" onclick="return validateFieldsMission()" class="btn btn-large btn-block" value="Actualizar"/>
                                                 </li>
                                             </ul>
                                             <div id="myTabContent" class="tab-content">
@@ -77,7 +78,7 @@ if (@session_start() == false) {
                                                     <textarea id="txtMission" name="txtMission" class="form-control text-justify" rows="15" ><?php echo $result->getMission(); ?></textarea>
                                                 </div>
                                                 <input type="hidden" name="mission">
-
+                                                <label style="color: #BA2121;" id="txtError"></labe>
                                             </div>
                                         </form>
                                     </div>

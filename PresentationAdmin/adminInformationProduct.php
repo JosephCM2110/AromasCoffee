@@ -31,6 +31,7 @@ if (@session_start() == false) {
 
         <!-- Custom styling plus plugins -->
         <link href="../StyleAdmin/build/css/custom.min.css" rel="stylesheet">
+        <script src="../StyleAdmin/js/ValidationJS/ValidateFiledsAdmin.js" type="text/javascript"></script>
     </head>
 
     <body class="nav-md">
@@ -75,23 +76,25 @@ if (@session_start() == false) {
                                             <div role="tabpanel" class="tab-pane fade active in" id="tab_content1" aria-labelledby="home-tab">
                                                 <ul>
                                                     <?php
+                                                    $cont = 0;
                                                     foreach ($result as $currentProduct) {
                                                         ?> 
-                                                    <form id="frmInformation" method="POST" action="../BusinessAdmin/ProductAction.php">
-                                                            <li><input style="border:none; width: 80%;" type="text" id="txtNameProduct" name="txtNameProduct" value="<?php echo $currentProduct->getNameProduct(); ?>"/>
-                                                                </li><br>
-                                                            <li><textarea class="form-control text-justify" rows="5" id="txtDescriptionProduct" name="txtDescriptionProduct"><?php echo $currentProduct->getDescription(); ?>
-                                                                </textarea></li>
+                                                        <form id="frmInformation" method="POST" action="../BusinessAdmin/ProductAction.php">
+                                                            <li><input style="border:none; width: 80%;" type="text" id="txtNameProduct<?php echo $cont; ?>" name="txtNameProduct" value="<?php echo $currentProduct->getNameProduct(); ?>"/></li>
+                                                            <textarea class="form-control text-justify" rows="5" id="txtDescriptionProduct<?php echo $cont; ?>" name="txtDescriptionProduct"><?php echo $currentProduct->getDescription(); ?></textarea>
                                                             <input type="hidden" name="idProduct" value="<?php echo $currentProduct->getIdProduct(); ?>">
                                                             <input type="hidden" name="update" value="update">
-                                                            <input type="submit" value="Actualizar"/><br>
+                                                            <input type="submit" value="Actualizar" onclick="return validateFieldsProducts()"/><br>
                                                             <div class="separator"></div>
                                                         </form>
                                                         <?php
+                                                        $cont++;
                                                     }
                                                     ?>                                                                                                                 
 
                                                 </ul>
+                                                <input type="hidden" id="contProduct" value="<?php echo $cont; ?>"/>
+                                                <label id="txtError" style="color: #880000;"></label>
                                             </div>
 
                                         </div>
@@ -169,10 +172,10 @@ if (isset($_GET['success'])) {
 }
 ?>
 <script>
-    function modalSelect(modalMessage, modalTitle) {
-        document.getElementsByClassName("modal-title")[0].textContent = modalTitle;
-        document.getElementsByClassName("modal-body")[0].textContent = modalMessage;
-    }
+                                                            function modalSelect(modalMessage, modalTitle) {
+                                                                document.getElementsByClassName("modal-title")[0].textContent = modalTitle;
+                                                                document.getElementsByClassName("modal-body")[0].textContent = modalMessage;
+                                                            }
 </script>
 </body>
 </html>

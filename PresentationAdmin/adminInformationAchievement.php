@@ -31,6 +31,7 @@ if (@session_start() == false) {
 
         <!-- Custom styling plus plugins -->
         <link href="../StyleAdmin/build/css/custom.min.css" rel="stylesheet">
+        <script src="../StyleAdmin/js/ValidationJS/ValidateFiledsAdmin.js" type="text/javascript"></script>
     </head>
 
     <body class="nav-md">
@@ -75,20 +76,24 @@ if (@session_start() == false) {
                                             <div role="tabpanel" class="tab-pane fade active in" id="tab_content1" aria-labelledby="home-tab">
                                                 <ul>
                                                     <?php
+                                                    $cont = 0;
                                                     foreach ($result as $currentAchievement) {
                                                         ?> 
                                                     <form id="frmInformation" method="POST" action="../BusinessAdmin/AchievementAction.php">
-                                                            <li><input style="border:none; width: 80%;" type="text" id="txtAchievement" name="txtAchievement" value="<?php echo $currentAchievement->getAchievement(); ?>"/>
-                                                                <input type="submit" value="Actualizar"/></li><br>
+                                                            <li><input style="border:none; width: 80%;" type="text" id="txtAchievement<?php echo $cont;?>" name="txtAchievement" value="<?php echo $currentAchievement->getAchievement(); ?>"/>
+                                                                <input type="submit" onclick="return validateFieldsAchievement()" value="Actualizar"/></li><br>
                                                             <input type="hidden" name="idAchievement" value="<?php echo $currentAchievement->getIdAchievement(); ?>">
                                                             <input type="hidden" name="update" value="update">
 
                                                         </form>
                                                         <?php
+                                                        $cont++;
                                                     }
                                                     ?>                                                                                                                 
 
                                                 </ul>
+                                                <input type="hidden" id="contAchievement" value="<?php echo $cont;?>"/>
+                                                <label id="txtError" style="color: #880000;"></label>
                                             </div>
 
                                         </div>

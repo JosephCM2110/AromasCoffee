@@ -32,6 +32,7 @@ if (@session_start() == false) {
         <!-- Custom styling plus plugins -->
         <link href="../StyleAdmin/build/css/custom.min.css" rel="stylesheet">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <script src="../StyleAdmin/js/ValidationJS/ValidateFiledsAdmin.js" type="text/javascript"></script>
     </head>
 
     <body class="nav-md">
@@ -69,7 +70,7 @@ if (@session_start() == false) {
                                                     <a href="#tab_content1" id="home-tab" role="tab" data-toggle="tab" aria-expanded="true">Visión</a>
                                                 </li>
 
-                                                <li role="presentation" class=""><input style="background: #ffffff;" type="submit" class="btn btn-large btn-block" value="Actualizar"/>
+                                                <li role="presentation" class=""><input style="background: #ffffff;" type="submit" onclick="return validateFieldsView()"class="btn btn-large btn-block" value="Actualizar"/>
                                                 </li>
                                             </ul>
                                             <div id="myTabContent" class="tab-content">
@@ -78,6 +79,7 @@ if (@session_start() == false) {
                                                 </div>
 
                                                 <input type="hidden" name="vision">
+                                                <label id="txtError" style="color: #880000;"></label>
                                             </div>
                                         </form>
                                     </div>

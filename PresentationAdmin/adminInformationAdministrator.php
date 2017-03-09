@@ -32,8 +32,7 @@ if (@session_start() == false) {
         <!-- Custom styling plus plugins -->
         <link href="../StyleAdmin/build/css/custom.min.css" rel="stylesheet">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-        <script src="../js/ValidateFiledsAdmin.js" type="text/javascript"></script>
-
+        <script src="../StyleAdmin/js/ValidationJS/ValidateFiledsAdmin.js" type="text/javascript"></script>
     </head>
 
     <body class="nav-md">
@@ -90,10 +89,10 @@ if (@session_start() == false) {
                                                             ?>
                                                             <form method="POST" action="../BusinessAdmin/AdministratorAction.php">
                                                                 <tr>
-                                                                    <td><input style="border:none; width: 100%" type="text" id="txtName" name="txtUserName" value="<?php echo $currentAdmin->getUserName(); ?>"/><label style="color: red;" id="txtErrorName<?php echo $i; ?>"></label></td>
-                                                                    <td><input style="border:none; width: 100%" type="text" id="txtEmail" name="txtEmail" value="<?php echo $currentAdmin->getEmail(); ?>"/><label style="color: red;" id="txtErrorEmail<?php echo $i; ?>"></label></td>
-                                                                    <td><input style="border:none; width: 100%" type="text" id="password" name="password" value="<?php echo $currentAdmin->getPassword(); ?>"/><label style="color: red;" id="txtErrorPassword<?php echo $i; ?>"></label></td>
-                                                                    <td><input type="submit" value="Actualizar"/></td>
+                                                                    <td><input style="border:none; width: 100%" type="text" id="txtName<?php echo $i; ?>" name="txtUserName" value="<?php echo $currentAdmin->getUserName(); ?>"/></td>
+                                                                    <td><input style="border:none; width: 100%" type="text" id="txtEmail<?php echo $i; ?>" name="txtEmail" value="<?php echo $currentAdmin->getEmail(); ?>"/></td>
+                                                                    <td><input style="border:none; width: 100%" type="text" id="txtPassword<?php echo $i; ?>" name="password" value="<?php echo $currentAdmin->getPassword(); ?>"/></td>
+                                                                    <td><input type="submit" onclick="return validateFieldsAdministrator()" value="Actualizar"/></td>
                                                                 <input type="hidden" id="idAdministrator" name="idUser" value="<?php echo $currentAdmin->getIdUser(); ?>">
                                                                 <input type="hidden" id="update" name="update" value="update">
                                                                 </tr>
@@ -102,7 +101,9 @@ if (@session_start() == false) {
                                                         }
                                                         ?>
                                                     </table>
+
                                                 </ul>
+                                                <label id="txtError" style="color: #880000;"></label>
                                                 <input type="hidden" id="countAdmin" name="countAdmin" value="<?php echo $i; ?>">
                                             </div>
                                         </div>
@@ -183,13 +184,20 @@ if (isset($_GET['success'])) {
                 $("#myModal").modal("show");
             });
         </script>';
+} else if (isset($_GET['errorData'])) {
+    echo '<script>                
+            $(document).ready(function(){
+                modalSelect("¡Debe ingresar todos los datos!","Registro");
+                $("#myModal").modal("show");
+            });
+        </script>';
 }
 ?>
 <script>
-    function modalSelect(modalMessage, modalTitle) {
-        document.getElementsByClassName("modal-title")[0].textContent = modalTitle;
-        document.getElementsByClassName("modal-body")[0].textContent = modalMessage;
-    }
+                                                                    function modalSelect(modalMessage, modalTitle) {
+                                                                        document.getElementsByClassName("modal-title")[0].textContent = modalTitle;
+                                                                        document.getElementsByClassName("modal-body")[0].textContent = modalMessage;
+                                                                    }
 </script>
 
 

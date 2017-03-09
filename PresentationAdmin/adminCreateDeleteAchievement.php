@@ -31,6 +31,7 @@ if (@session_start() == false) {
 
         <!-- Custom styling plus plugins -->
         <link href="../StyleAdmin/build/css/custom.min.css" rel="stylesheet">
+        <script src="../StyleAdmin/js/ValidationJS/ValidateFiledsAdmin.js" type="text/javascript"></script>
     </head>
 
     <body class="nav-md">
@@ -64,7 +65,7 @@ if (@session_start() == false) {
                                                 <li role="presentation" class="active">
                                                     <a href="#tab_content1" id="home-tab" role="tab" data-toggle="tab" aria-expanded="true">Logros</a>
                                                 </li>                                                        
-                                                <li role="presentation" class=""><input style="background: #ffffff;" type="submit" class="btn btn-large btn-block" value="Registar"/>
+                                                <li role="presentation" class=""><input style="background: #ffffff;" type="submit" onclick="return validateFieldsAchievementCreate()" class="btn btn-large btn-block" value="Registar"/>
                                                 </li>
                                                 <li role="presentation" class="">
                                                     <a href="#tab_content2" role="tab" id="profile-tab" data-toggle="tab" aria-expanded="false">Eliminar logro</a>
@@ -76,7 +77,7 @@ if (@session_start() == false) {
                                                     <label>Imagen:</label>
                                                     <input type="file" id="fileImage" name="fileImage">
                                                     <input type="hidden" name="create" value="create">
-
+                                                    <label id="txtError" style="color: #880000;"></label>
                                                 </div>
 
                                                 <div role="tabpanel" class="tab-pane fade" id="tab_content2" aria-labelledby="profile-tab">

@@ -31,6 +31,7 @@ if (@session_start() == false) {
 
         <!-- Custom styling plus plugins -->
         <link href="../StyleAdmin/build/css/custom.min.css" rel="stylesheet">
+        <script src="../StyleAdmin/js/ValidationJS/ValidateFiledsAdmin.js" type="text/javascript"></script>
     </head>
 
     <body class="nav-md">
@@ -75,20 +76,24 @@ if (@session_start() == false) {
                                             <div role="tabpanel" class="tab-pane fade active in" id="tab_content1" aria-labelledby="home-tab">
                                                 <ul>
                                                     <?php
+                                                    $cont = 0;
                                                     foreach ($result as $currentCharac) {
                                                         ?> 
                                                         <form id="frmInformation" method="POST" action="../BusinessAdmin/CharacteristicsAction.php">
-                                                            <li><input style="border:none; width: 80%;" type="text" id="txtCharacteristic" name="txtCharacteristic" value="<?php echo $currentCharac->getCharateristic(); ?>"/>
-                                                                <input type="submit" value="Actualizar"/></li><br>
+                                                            <li><input style="border:none; width: 80%;" type="text" id="txtCharacteristic<?php echo $cont;?>" name="txtCharacteristic" value="<?php echo $currentCharac->getCharateristic(); ?>"/>
+                                                                <input type="submit" onclick="return validateFieldsCharacteristics()" value="Actualizar"/></li><br>
                                                             <input type="hidden" name="idCharacteristic" value="<?php echo $currentCharac->getIdCharacteristic(); ?>">
                                                             <input type="hidden" name="update" value="update">
 
                                                         </form>
                                                         <?php
+                                                        $cont++;
                                                     }
                                                     ?>                                                                                                                 
 
                                                 </ul>
+                                                <input type="hidden" id="contChara" value="<?php echo $cont;?>">
+                                                <label id="txtError" style="color: #880000;"></label>
                                             </div>
 
                                         </div>

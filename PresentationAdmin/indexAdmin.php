@@ -60,17 +60,17 @@ if (@session_start() == false) {
 
                                                     <li>
                                                         <span class="glyphicon glyphicon-asterisk" aria-hidden="true"></span>
-                                                        <span class="glyphicon-class">Información genral</span>
+                                                        <span class="glyphicon-class"><a href="adminInformationHistory.php">Información general</a></span>
                                                     </li>
 
                                                     <li>
                                                         <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-                                                        <span class="glyphicon-class">Productos</span>
+                                                        <span class="glyphicon-class"><a href="adminInformationProduct.php">Productos</a></span>
                                                     </li>
 
                                                     <li>
                                                         <span class="glyphicon glyphicon-euro" aria-hidden="true"></span>
-                                                        <span class="glyphicon-class">Imágenes</span>
+                                                        <span class="glyphicon-class"><a href="adminUploadImageGalery.php">Imágenes</a></span>
                                                     </li>                                                                                                 
 
                                                 </ul>

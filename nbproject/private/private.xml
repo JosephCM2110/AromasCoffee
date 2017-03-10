@@ -3,11 +3,84 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/xampp/htdocs/Caf-Aromas/index.php</file>
+            <file>file:/C:/xampp/htdocs/Caf-Aromas/PresentationAdmin/adminCreateDeleteCharacteristics.php</file>
+            <file>file:/C:/xampp/htdocs/Caf-Aromas/PresentationAdmin/adminInformationMission.php</file>
+            <file>file:/C:/xampp/htdocs/Caf-Aromas/BusinessAdmin/ImagesProductAdminBusiness.php</file>
+            <file>file:/C:/xampp/htdocs/Caf-Aromas/PresentationAdmin/adminInformationHistory.php</file>
+            <file>file:/C:/xampp/htdocs/Caf-Aromas/BusinessAdmin/AchievementAction.php</file>
+            <file>file:/C:/xampp/htdocs/Caf-Aromas/StyleAdmin/vendors/dropzone/dist/dropzone-amd-module.js</file>
+            <file>file:/C:/xampp/htdocs/Caf-Aromas/Data/ImageData.php</file>
+            <file>file:/C:/xampp/htdocs/Caf-Aromas/Data/ImageProductData.php</file>
+            <file>file:/C:/xampp/htdocs/Caf-Aromas/BusinessAdmin/NewImagesGalery.php</file>
+            <file>file:/C:/xampp/htdocs/Caf-Aromas/Domain/Organization.php</file>
             <file>file:/C:/xampp/htdocs/Caf-Aromas/Data/OrganizationData.php</file>
+            <file>file:/C:/xampp/htdocs/Caf-Aromas/PresentationAdmin/login.php</file>
+            <file>file:/C:/xampp/htdocs/Caf-Aromas/DataAdmin/ProductAdminData.php</file>
+            <file>file:/C:/xampp/htdocs/Caf-Aromas/Resources/Icons/FOTO%20AROMAS.jpg</file>
+            <file>file:/C:/xampp/htdocs/Caf-Aromas/Data/DescriptiveSheetCofeeData.php</file>
+            <file>file:/C:/xampp/htdocs/Caf-Aromas/Business/SmtpAction.php</file>
+            <file>file:/C:/xampp/htdocs/Caf-Aromas/Domain/Product.php</file>
+            <file>file:/C:/xampp/htdocs/Caf-Aromas/BusinessAdmin/CharacteristicsAction.php</file>
+            <file>file:/C:/xampp/htdocs/Caf-Aromas/PresentationAdmin/adminCreateDeleteProduct.php</file>
+            <file>file:/C:/xampp/htdocs/Caf-Aromas/Domain/Email.php</file>
+            <file>file:/C:/xampp/htdocs/Caf-Aromas/index.php</file>
+            <file>file:/C:/xampp/htdocs/Caf-Aromas/Data/AchievementData.php</file>
             <file>file:/C:/xampp/htdocs/Caf-Aromas/StyleIndex/css/zoom.css</file>
-            <file>file:/C:/xampp/htdocs/Caf-Aromas/Data/Data.php</file>
+            <file>file:/C:/xampp/htdocs/Caf-Aromas/Domain/Achievement.php</file>
+            <file>file:/C:/xampp/htdocs/Caf-Aromas/Data/ProductData.php</file>
+            <file>file:/C:/xampp/htdocs/Caf-Aromas/Business/ImageBusiness.php</file>
+            <file>file:/C:/xampp/htdocs/Caf-Aromas/BusinessAdmin/unlogin.php</file>
+            <file>file:/C:/xampp/htdocs/Caf-Aromas/Domain/Characteristic.php</file>
+            <file>file:/C:/xampp/htdocs/Caf-Aromas/DataAdmin/AchievementAdminData.php</file>
+            <file>file:/C:/xampp/htdocs/Caf-Aromas/Domain/User.php</file>
+            <file>file:/C:/xampp/htdocs/Caf-Aromas/BusinessAdmin/ImagesAction.php</file>
+            <file>file:/C:/xampp/htdocs/Caf-Aromas/Business/CharacteristicBusiness.php</file>
+            <file>file:/C:/xampp/htdocs/Caf-Aromas/BusinessAdmin/ProductAdminBusiness.php</file>
+            <file>file:/C:/xampp/htdocs/Caf-Aromas/PresentationAdmin/adminInformationAchievement.php</file>
+            <file>file:/C:/xampp/htdocs/Caf-Aromas/PresentationAdmin/adminInformationCharacteristics.php</file>
+            <file>file:/C:/xampp/htdocs/Caf-Aromas/Business/ImageProductBusiness.php</file>
+            <file>file:/C:/xampp/htdocs/Caf-Aromas/PresentationAdmin/adminCreateDeleteAdministrator.php</file>
+            <file>file:/C:/xampp/htdocs/Caf-Aromas/BusinessAdmin/ImagesGaleryAdminBusiness.php</file>
             <file>file:/C:/xampp/htdocs/Caf-Aromas/StyleIndex/css/style.css</file>
+            <file>file:/C:/xampp/htdocs/Caf-Aromas/StyleAdmin/js/ValidationJS/ValidateFiledsAdmin.js</file>
+            <file>file:/C:/xampp/htdocs/Caf-Aromas/Data/CharacteristicData.php</file>
+            <file>file:/C:/xampp/htdocs/Caf-Aromas/BusinessAdmin/CharacteristicsAdminBusiness.php</file>
+            <file>file:/C:/xampp/htdocs/Caf-Aromas/Domain/Image.php</file>
+            <file>file:/C:/xampp/htdocs/Caf-Aromas/BusinessAdmin/AdministratorAction.php</file>
+            <file>file:/C:/xampp/htdocs/Caf-Aromas/PresentationAdmin/reusableMenu.php</file>
+            <file>file:/C:/xampp/htdocs/Caf-Aromas/BusinessAdmin/NewImagesProducts.php</file>
+            <file>file:/C:/xampp/htdocs/Caf-Aromas/BusinessAdmin/LoginBusiness.php</file>
+            <file>file:/C:/xampp/htdocs/Caf-Aromas/Domain/ImageProduct.php</file>
+            <file>file:/C:/xampp/htdocs/Caf-Aromas/Business/OrganizationBusiness.php</file>
+            <file>file:/C:/xampp/htdocs/Caf-Aromas/DataAdmin/ImagesProductAdminData.php</file>
+            <file>file:/C:/xampp/htdocs/Caf-Aromas/BusinessAdmin/ValidationPHP.php</file>
+            <file>file:/C:/xampp/htdocs/Caf-Aromas/Business/ProductBusiness.php</file>
+            <file>file:/C:/xampp/htdocs/Caf-Aromas/BusinessAdmin/AdministratorBusiness.php</file>
+            <file>file:/C:/xampp/htdocs/Caf-Aromas/PresentationAdmin/adminUploadImageProducts.php</file>
+            <file>file:/C:/xampp/htdocs/Caf-Aromas/PresentationAdmin/adminInformationAdministrator.php</file>
+            <file>file:/C:/xampp/htdocs/Caf-Aromas/PresentationAdmin/adminCreateDeleteAchievement.php</file>
+            <file>file:/C:/xampp/htdocs/Caf-Aromas/DataAdmin/CharacteristicsAdminData.php</file>
+            <file>file:/C:/xampp/htdocs/Caf-Aromas/BusinessAdmin/OrganizationAction.php</file>
+            <file>file:/C:/xampp/htdocs/Caf-Aromas/BusinessAdmin/AchievementAdminBusiness.php</file>
+            <file>file:/C:/xampp/htdocs/Caf-Aromas/PresentationAdmin/adminInformationDescriptivesheetcofee.php</file>
+            <file>file:/C:/xampp/htdocs/Caf-Aromas/PresentationAdmin/adminImagesProducts.php</file>
+            <file>file:/C:/xampp/htdocs/Caf-Aromas/PresentationAdmin/indexAdmin.php</file>
+            <file>file:/C:/xampp/htdocs/Caf-Aromas/StyleAdmin/vendors/dropzone/bower.json</file>
+            <file>file:/C:/xampp/htdocs/Caf-Aromas/PresentationAdmin/adminInformationProduct.php</file>
+            <file>file:/C:/xampp/htdocs/Caf-Aromas/Business/ValidatePHP.php</file>
+            <file>file:/C:/xampp/htdocs/Caf-Aromas/DataAdmin/OrganizationAdminData.php</file>
+            <file>file:/C:/xampp/htdocs/Caf-Aromas/PresentationAdmin/adminImagesGalery.php</file>
+            <file>file:/C:/xampp/htdocs/Caf-Aromas/Data/Data.php</file>
+            <file>file:/C:/xampp/htdocs/Caf-Aromas/BusinessAdmin/ProductAction.php</file>
+            <file>file:/C:/xampp/htdocs/Caf-Aromas/StyleAdmin/vendors/dropzone/dist/dropzone.js</file>
+            <file>file:/C:/xampp/htdocs/Caf-Aromas/DataAdmin/LoginData.php</file>
+            <file>file:/C:/xampp/htdocs/Caf-Aromas/PresentationAdmin/adminInformationView.php</file>
+            <file>file:/C:/xampp/htdocs/Caf-Aromas/Business/AchievementBusiness.php</file>
+            <file>file:/C:/xampp/htdocs/Caf-Aromas/StyleAdmin/js/AjaxFuction/DeleteImage.js</file>
+            <file>file:/C:/xampp/htdocs/Caf-Aromas/BusinessAdmin/OrganizationAdminBusiness.php</file>
+            <file>file:/C:/xampp/htdocs/Caf-Aromas/PresentationAdmin/adminUploadImageGalery.php</file>
+            <file>file:/C:/xampp/htdocs/Caf-Aromas/DataAdmin/AdministratorData.php</file>
+            <file>file:/C:/xampp/htdocs/Caf-Aromas/DataAdmin/ImagesGaleryAdminData.php</file>
         </group>
     </open-files>
 </project-private>

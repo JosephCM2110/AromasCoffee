@@ -81,8 +81,18 @@
                         <li><a href="#reviews">Logros</a></li>
                         <li><a href="#tour">Tour del café</a></li>
                         <li><a href="#contact">Contacto</a></li>
+                        <li> <div style= "background: transparent;" id="google_translate_element"></div><script type="text/javascript">
+                            function googleTranslateElementInit() {
+                                new google.translate.TranslateElement({pageLanguage: 'es', layout: google.translate.TranslateElement.FloatPosition.TOP_RIGHT}, 'google_translate_element');
+                                document.getElementById(':0.targetLanguage').style.backgroundColor='transparent';
+                                document.getElementById(':0.targetLanguage').style.border='none';
+                            }
+                        </script><script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script></li>
+                     
                     </ul>
+
                 </div>
+
                 <!--/Menu -->
             </div>
             <!-- end container -->
